@@ -1,0 +1,54 @@
+{
+    "name": "Standart Deney Raporu",
+    "description": "Standart deney raporu şablonu",
+    "settings": {
+        "main_title": {
+            "alignment": "center",
+            "bold": true,
+            "font_size": 12,
+            "font_name": "Times New Roman",
+            "color": "black"
+        },
+        "headings": {
+            "alignment": "left",
+            "bold": true,
+            "font_size": 12,
+            "font_name": "Times New Roman",
+            "color": "black",
+            "numbered": true
+        },
+        "subheadings": {
+            "alignment": "left",
+            "bold": true,
+            "font_size": 12,
+            "font_name": "Times New Roman",
+            "color": "black",
+            "numbered": true
+        },
+        "text": {
+            "alignment": "left",
+            "bold": false,
+            "font_size": 12,
+            "font_name": "Times New Roman",
+            "color": "black"
+        },
+        "tables": {
+            "header_background": "black",
+            "header_text_color": "white",
+            "alignment": "center"
+        },
+        "images": {
+            "alignment": "left",
+            "caption_alignment": "left"
+        }
+    },
+    "sections": [
+        "Amaçlar",
+        "Teorik Bilgiler",
+        "Malzemeler",
+        "Deneyin Yapılışı ve Hesaplamalar",
+        "Sonuç ve Yorumlar",
+        "Kaynakça"
+    ],
+    "template_file": "deney_raporu.md"
+}

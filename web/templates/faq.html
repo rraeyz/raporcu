@@ -1,0 +1,824 @@
+{% extends "base.html" %}
+
+{% block title %}Sıkça Sorulan Sorular - Raporcu{% endblock %}
+
+{% block content %}
+<!-- FAQ Hero -->
+<section class="faq-hero" id="faq-hero">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8 mx-auto text-center" data-aos="fade-up">
+                <h1 class="hero-title">Sıkça Sorulan Sorular</h1>
+                <p class="hero-subtitle">Raporcu hakkında en çok merak edilen soruların yanıtlarını burada bulabilirsiniz</p>
+                <div class="faq-search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="faqSearch" placeholder="Sorularınızı buraya yazın...">
+                        <button class="btn btn-primary" type="button" id="faqSearchBtn">
+                            <i class="bi bi-search"></i> Ara
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="hero-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill="#ffffff" fill-opacity="1" d="M0,96L60,112C120,128,240,160,360,160C480,160,600,128,720,122.7C840,117,960,139,1080,138.7C1200,139,1320,117,1380,106.7L1440,96L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
+        </svg>
+    </div>
+</section>
+
+<!-- FAQ Categories -->
+<section class="faq-categories section-padding" id="faq-categories">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="categories-wrapper" data-aos="fade-up">
+                    <div class="row g-4">
+                        <div class="col-md-3 col-6">
+                            <a href="#general" class="category-item active">
+                                <div class="category-icon">
+                                    <i class="bi bi-info-circle"></i>
+                                </div>
+                                <h3>Genel</h3>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-6">
+                            <a href="#account" class="category-item">
+                                <div class="category-icon">
+                                    <i class="bi bi-person"></i>
+                                </div>
+                                <h3>Hesap</h3>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-6">
+                            <a href="#payment" class="category-item">
+                                <div class="category-icon">
+                                    <i class="bi bi-credit-card"></i>
+                                </div>
+                                <h3>Ödeme</h3>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-6">
+                            <a href="#usage" class="category-item">
+                                <div class="category-icon">
+                                    <i class="bi bi-gear"></i>
+                                </div>
+                                <h3>Kullanım</h3>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- General FAQ -->
+<section class="faq-section section-padding bg-light" id="general">
+    <div class="container">
+        <div class="section-header text-center" data-aos="fade-up">
+            <h2>Genel Sorular</h2>
+            <p>Raporcu hakkında temel bilgiler</p>
+        </div>
+        
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="accordion" id="generalFaqAccordion" data-aos="fade-up">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="generalHeadingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#generalCollapseOne" aria-expanded="true" aria-controls="generalCollapseOne">
+                                Raporcu nedir ve nasıl çalışır?
+                            </button>
+                        </h2>
+                        <div id="generalCollapseOne" class="accordion-collapse collapse show" aria-labelledby="generalHeadingOne" data-bs-parent="#generalFaqAccordion">
+                            <div class="accordion-body">
+                                <p>Raporcu, yapay zeka destekli bir rapor oluşturma platformudur. Ses kayıtları, PDF dokümanları veya metin dosyalarınızı yükleyerek, bu içerikleri profesyonel raporlara dönüştürmenize olanak sağlar.</p>
+                                <p>Çalışma prensibi üç adımdan oluşur:</p>
+                                <ol>
+                                    <li>Dosya yükleme: Ses, metin veya PDF dosyalarınızı platforma yüklersiniz.</li>
+                                    <li>Şablon seçimi: İhtiyacınıza uygun rapor şablonu ve AI modelini seçersiniz.</li>
+                                    <li>Rapor oluşturma: Yapay zeka, içeriğinizi analiz eder ve seçtiğiniz şablona göre profesyonel bir rapor oluşturur.</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="generalHeadingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#generalCollapseTwo" aria-expanded="false" aria-controls="generalCollapseTwo">
+                                Hangi dosya formatlarını destekliyorsunuz?
+                            </button>
+                        </h2>
+                        <div id="generalCollapseTwo" class="accordion-collapse collapse" aria-labelledby="generalHeadingTwo" data-bs-parent="#generalFaqAccordion">
+                            <div class="accordion-body">
+                                <p>Şu anda aşağıdaki dosya formatlarını destekliyoruz:</p>
+                                <ul>
+                                    <li><strong>Ses Dosyaları:</strong> MP3, WAV, M4A, AAC</li>
+                                    <li><strong>Metin Dosyaları:</strong> TXT, DOCX, DOC, PDF, MD</li>
+                                </ul>
+                                <p>Yakın gelecekte video dosyaları için de destek eklenecektir.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="generalHeadingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#generalCollapseThree" aria-expanded="false" aria-controls="generalCollapseThree">
+                                Raporcu hangi dilleri destekliyor?
+                            </button>
+                        </h2>
+                        <div id="generalCollapseThree" class="accordion-collapse collapse" aria-labelledby="generalHeadingThree" data-bs-parent="#generalFaqAccordion">
+                            <div class="accordion-body">
+                                <p>Raporcu şu anda aşağıdaki dilleri desteklemektedir:</p>
+                                <ul>
+                                    <li>Türkçe (ana dil desteği)</li>
+                                    <li>İngilizce</li>
+                                    <li>Almanca</li>
+                                    <li>Fransızca</li>
+                                    <li>İspanyolca</li>
+                                    <li>İtalyanca</li>
+                                    <li>Portekizce</li>
+                                    <li>Rusça</li>
+                                </ul>
+                                <p>Diğer diller için çalışmalarımız devam etmektedir.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="generalHeadingFour">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#generalCollapseFour" aria-expanded="false" aria-controls="generalCollapseFour">
+                                Oluşturulan raporların doğruluğu ne kadar güvenilir?
+                            </button>
+                        </h2>
+                        <div id="generalCollapseFour" class="accordion-collapse collapse" aria-labelledby="generalHeadingFour" data-bs-parent="#generalFaqAccordion">
+                            <div class="accordion-body">
+                                <p>Raporcu, en son yapay zeka teknolojilerini kullanarak yüksek doğruluk oranına sahip raporlar oluşturur. Ancak, her yapay zeka sistemi gibi, %100 mükemmellik garanti edilemez.</p>
+                                <p>Ses tanıma doğruluğumuz ortalama %95'in üzerindedir. Teknik terimler veya özel isimler içeren konuşmalarda bu oran değişebilir. Bu nedenle, özellikle kritik raporlarda, oluşturulan içeriği kontrol etmenizi ve gerekirse düzenlemenizi öneririz.</p>
+                                <p>Sistemimiz sürekli olarak kendini geliştirmekte ve her kullanımda daha iyi hale gelmektedir.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="generalHeadingFive">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#generalCollapseFive" aria-expanded="false" aria-controls="generalCollapseFive">
+                                Verilerim güvende mi?
+                            </button>
+                        </h2>
+                        <div id="generalCollapseFive" class="accordion-collapse collapse" aria-labelledby="generalHeadingFive" data-bs-parent="#generalFaqAccordion">
+                            <div class="accordion-body">
+                                <p>Veri güvenliği bizim için en önemli önceliktir. Tüm dosyalarınız ve oluşturulan raporlarınız güvenli sunucularda saklanır ve SSL şifreleme ile korunur.</p>
+                                <p>Kişisel verileriniz hiçbir şekilde üçüncü taraflarla paylaşılmaz. Yüklediğiniz içerikler yalnızca rapor oluşturma amacıyla kullanılır ve izniniz olmadan başka amaçlar için kullanılmaz.</p>
+                                <p>Gizlilik politikamızda belirtildiği üzere, hesabınızı sildiğinizde tüm verileriniz kalıcı olarak silinir.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Account FAQ -->
+<section class="faq-section section-padding" id="account">
+    <div class="container">
+        <div class="section-header text-center" data-aos="fade-up">
+            <h2>Hesap Soruları</h2>
+            <p>Hesap yönetimi ve kullanıcı ayarları hakkında</p>
+        </div>
+        
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="accordion" id="accountFaqAccordion" data-aos="fade-up">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="accountHeadingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#accountCollapseOne" aria-expanded="true" aria-controls="accountCollapseOne">
+                                Nasıl kayıt olabilirim?
+                            </button>
+                        </h2>
+                        <div id="accountCollapseOne" class="accordion-collapse collapse show" aria-labelledby="accountHeadingOne" data-bs-parent="#accountFaqAccordion">
+                            <div class="accordion-body">
+                                <p>Raporcu'ya kayıt olmak çok basittir:</p>
+                                <ol>
+                                    <li>Ana sayfadaki "Ücretsiz Başlayın" butonuna tıklayın.</li>
+                                    <li>E-posta adresinizi, adınızı ve şifrenizi girin.</li>
+                                    <li>Kullanım şartlarını ve gizlilik politikasını okuyup kabul edin.</li>
+                                    <li>E-posta adresinize gönderilen doğrulama bağlantısına tıklayarak hesabınızı aktifleştirin.</li>
+                                </ol>
+                                <p>Doğrulama işlemini tamamladıktan sonra, 7 günlük ücretsiz deneme süreniz otomatik olarak başlayacaktır.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="accountHeadingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accountCollapseTwo" aria-expanded="false" aria-controls="accountCollapseTwo">
+                                Şifremi unuttum, ne yapmalıyım?
+                            </button>
+                        </h2>
+                        <div id="accountCollapseTwo" class="accordion-collapse collapse" aria-labelledby="accountHeadingTwo" data-bs-parent="#accountFaqAccordion">
+                            <div class="accordion-body">
+                                <p>Şifrenizi unuttuysanız, aşağıdaki adımları izleyebilirsiniz:</p>
+                                <ol>
+                                    <li>Giriş sayfasındaki "Şifremi Unuttum" bağlantısına tıklayın.</li>
+                                    <li>Kayıtlı e-posta adresinizi girin ve "Şifre Sıfırlama" butonuna tıklayın.</li>
+                                    <li>E-posta adresinize gönderilen şifre sıfırlama bağlantısına tıklayın.</li>
+                                    <li>Yeni şifrenizi belirleyin ve onaylayın.</li>
+                                </ol>
+                                <p>E-posta almadıysanız, spam klasörünüzü kontrol edin veya destek ekibimizle iletişime geçin.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="accountHeadingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accountCollapseThree" aria-expanded="false" aria-controls="accountCollapseThree">
+                                Hesabımı nasıl silebilirim?
+                            </button>
+                        </h2>
+                        <div id="accountCollapseThree" class="accordion-collapse collapse" aria-labelledby="accountHeadingThree" data-bs-parent="#accountFaqAccordion">
+                            <div class="accordion-body">
+                                <p>Hesabınızı silmek için aşağıdaki adımları izleyebilirsiniz:</p>
+                                <ol>
+                                    <li>Hesabınıza giriş yapın ve sağ üstteki profil menüsünden "Hesap Ayarları"nı seçin.</li>
+                                    <li>Sayfanın en altında bulunan "Hesabımı Sil" bölümüne gidin.</li>
+                                    <li>"Hesabımı Kalıcı Olarak Sil" butonuna tıklayın.</li>
+                                    <li>Şifrenizi girerek işlemi onaylayın.</li>
+                                </ol>
+                                <p>Hesap silme işlemi geri alınamaz ve tüm verileriniz, raporlarınız, ayarlarınız kalıcı olarak silinir. Aktif bir aboneliğiniz varsa, önce aboneliğinizi iptal etmeniz gerektiğini unutmayın.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="accountHeadingFour">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accountCollapseFour" aria-expanded="false" aria-controls="accountCollapseFour">
+                                Profilimi nasıl güncelleyebilirim?
+                            </button>
+                        </h2>
+                        <div id="accountCollapseFour" class="accordion-collapse collapse" aria-labelledby="accountHeadingFour" data-bs-parent="#accountFaqAccordion">
+                            <div class="accordion-body">
+                                <p>Profil bilgilerinizi güncellemek için:</p>
+                                <ol>
+                                    <li>Hesabınıza giriş yapın ve sağ üstteki profil menüsünden "Hesap Ayarları"nı seçin.</li>
+                                    <li>"Profil Bilgileri" sekmesine tıklayın.</li>
+                                    <li>Ad, soyad, profil fotoğrafı gibi bilgilerinizi güncelleyin.</li>
+                                    <li>"Değişiklikleri Kaydet" butonuna tıklayarak güncellemeleri onaylayın.</li>
+                                </ol>
+                                <p>E-posta adresinizi değiştirmek isterseniz, güvenlik nedeniyle yeni e-posta adresinize bir doğrulama bağlantısı gönderilecek ve bu bağlantıya tıklamanız istenecektir.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="accountHeadingFive">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accountCollapseFive" aria-expanded="false" aria-controls="accountCollapseFive">
+                                Birden fazla kullanıcı için tek hesap kullanabilir miyim?
+                            </button>
+                        </h2>
+                        <div id="accountCollapseFive" class="accordion-collapse collapse" aria-labelledby="accountHeadingFive" data-bs-parent="#accountFaqAccordion">
+                            <div class="accordion-body">
+                                <p>Bireysel hesaplar tek bir kullanıcı için tasarlanmıştır ve hesap bilgilerinin paylaşılması kullanım şartlarımıza aykırıdır.</p>
+                                <p>Ekip veya şirket kullanımı için kurumsal planlarımız mevcuttur. Kurumsal planlar, çoklu kullanıcı yönetimi, rol tabanlı izinler ve merkezi faturalandırma gibi özellikler sunar.</p>
+                                <p>Kurumsal çözümlerimiz hakkında detaylı bilgi için "İletişim" sayfasından bizimle iletişime geçebilirsiniz.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Payment FAQ -->
+<section class="faq-section section-padding bg-light" id="payment">
+    <div class="container">
+        <div class="section-header text-center" data-aos="fade-up">
+            <h2>Ödeme Soruları</h2>
+            <p>Abonelikler, fiyatlandırma ve ödemelerle ilgili</p>
+        </div>
+        
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="accordion" id="paymentFaqAccordion" data-aos="fade-up">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="paymentHeadingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#paymentCollapseOne" aria-expanded="true" aria-controls="paymentCollapseOne">
+                                Hangi ödeme yöntemlerini kabul ediyorsunuz?
+                            </button>
+                        </h2>
+                        <div id="paymentCollapseOne" class="accordion-collapse collapse show" aria-labelledby="paymentHeadingOne" data-bs-parent="#paymentFaqAccordion">
+                            <div class="accordion-body">
+                                <p>Aşağıdaki ödeme yöntemlerini kabul ediyoruz:</p>
+                                <ul>
+                                    <li>Kredi/Banka Kartları (Visa, Mastercard, American Express)</li>
+                                    <li>Havale/EFT</li>
+                                    <li>iyzico ile ödeme</li>
+                                    <li>PayPal (yakında)</li>
+                                </ul>
+                                <p>Kurumsal müşterilerimiz için fatura karşılığı ödeme seçeneği de sunulmaktadır.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="paymentHeadingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#paymentCollapseTwo" aria-expanded="false" aria-controls="paymentCollapseTwo">
+                                Aboneliğimi nasıl iptal edebilirim?
+                            </button>
+                        </h2>
+                        <div id="paymentCollapseTwo" class="accordion-collapse collapse" aria-labelledby="paymentHeadingTwo" data-bs-parent="#paymentFaqAccordion">
+                            <div class="accordion-body">
+                                <p>Aboneliğinizi istediğiniz zaman iptal edebilirsiniz:</p>
+                                <ol>
+                                    <li>Hesabınıza giriş yapın ve sağ üstteki profil menüsünden "Hesap Ayarları"nı seçin.</li>
+                                    <li>"Abonelik" sekmesine tıklayın.</li>
+                                    <li>"Aboneliği İptal Et" butonuna tıklayın.</li>
+                                    <li>İptal nedeninizi seçin ve işlemi onaylayın.</li>
+                                </ol>
+                                <p>Aboneliğinizi iptal ettiğinizde, mevcut ödeme döneminin sonuna kadar hizmetlerimizi kullanmaya devam edebilirsiniz. Dönem sonunda hesabınız otomatik olarak ücretsiz sürüme geçirilecektir.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="paymentHeadingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#paymentCollapseThree" aria-expanded="false" aria-controls="paymentCollapseThree">
+                                Planımı yükseltebilir veya düşürebilir miyim?
+                            </button>
+                        </h2>
+                        <div id="paymentCollapseThree" class="accordion-collapse collapse" aria-labelledby="paymentHeadingThree" data-bs-parent="#paymentFaqAccordion">
+                            <div class="accordion-body">
+                                <p>Evet, planınızı istediğiniz zaman değiştirebilirsiniz:</p>
+                                <p><strong>Plan Yükseltme:</strong> Plan yükseltme işlemi anında gerçekleşir. Mevcut planınız ile yeni planınız arasındaki fiyat farkı, kalan gün sayısına orantılı olarak hesaplanır ve size fatura edilir.</p>
+                                <p><strong>Plan Düşürme:</strong> Plan düşürme işlemi mevcut abonelik döneminin sonunda geçerli olur. Mevcut dönemin sonuna kadar mevcut planınızdan yararlanmaya devam edersiniz.</p>
+                                <p>Plan değişikliği yapmak için "Hesap Ayarları > Abonelik > Planı Değiştir" yolunu izleyebilirsiniz.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="paymentHeadingFour">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#paymentCollapseFour" aria-expanded="false" aria-controls="paymentCollapseFour">
+                                İade politikanız nedir?
+                            </button>
+                        </h2>
+                        <div id="paymentCollapseFour" class="accordion-collapse collapse" aria-labelledby="paymentHeadingFour" data-bs-parent="#paymentFaqAccordion">
+                            <div class="accordion-body">
+                                <p>İade politikamız aşağıdaki gibidir:</p>
+                                <ul>
+                                    <li>Ödeme yaptıktan sonraki 14 gün içinde, eğer hizmetimizden memnun kalmazsanız ve 3'ten az rapor oluşturduysanız, tam ücret iadesi talep edebilirsiniz.</li>
+                                    <li>14 günlük süre geçtikten sonra veya 3'ten fazla rapor oluşturduysanız, kısmi iade veya bir sonraki döneme kredi olarak aktarma seçenekleri sunulabilir.</li>
+                                    <li>Yıllık plan aboneliklerinde ilk 30 gün içinde iptal ederseniz, kullanılmayan aylar için orantılı iade yapılır.</li>
+                                </ul>
+                                <p>İade talepleri için destek@raporcu.com adresine e-posta gönderebilir veya destek sayfamızdan talep oluşturabilirsiniz.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="paymentHeadingFive">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#paymentCollapseFive" aria-expanded="false" aria-controls="paymentCollapseFive">
+                                Faturalandırma bilgilerimi nasıl güncelleyebilirim?
+                            </button>
+                        </h2>
+                        <div id="paymentCollapseFive" class="accordion-collapse collapse" aria-labelledby="paymentHeadingFive" data-bs-parent="#paymentFaqAccordion">
+                            <div class="accordion-body">
+                                <p>Faturalandırma bilgilerinizi güncellemek için:</p>
+                                <ol>
+                                    <li>Hesabınıza giriş yapın ve sağ üstteki profil menüsünden "Hesap Ayarları"nı seçin.</li>
+                                    <li>"Faturalandırma" sekmesine tıklayın.</li>
+                                    <li>Şirket adı, vergi numarası, adres gibi bilgilerinizi güncelleyin.</li>
+                                    <li>"Değişiklikleri Kaydet" butonuna tıklayarak güncellemeleri onaylayın.</li>
+                                </ol>
+                                <p>Ödeme yönteminizi değiştirmek için aynı sayfada "Ödeme Yöntemleri" bölümünü kullanabilirsiniz.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Usage FAQ -->
+<section class="faq-section section-padding" id="usage">
+    <div class="container">
+        <div class="section-header text-center" data-aos="fade-up">
+            <h2>Kullanım Soruları</h2>
+            <p>Platform kullanımı ve özellikler hakkında</p>
+        </div>
+        
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="accordion" id="usageFaqAccordion" data-aos="fade-up">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="usageHeadingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#usageCollapseOne" aria-expanded="true" aria-controls="usageCollapseOne">
+                                Raporcu'yu kullanmaya nasıl başlayabilirim?
+                            </button>
+                        </h2>
+                        <div id="usageCollapseOne" class="accordion-collapse collapse show" aria-labelledby="usageHeadingOne" data-bs-parent="#usageFaqAccordion">
+                            <div class="accordion-body">
+                                <p>Raporcu'yu kullanmaya başlamak için adımlar:</p>
+                                <ol>
+                                    <li>Hesabınıza giriş yapın veya ücretsiz deneme için kaydolun.</li>
+                                    <li>Dashboard'da "Yeni Rapor Oluştur" butonuna tıklayın.</li>
+                                    <li>Dosyanızı yükleyin veya sürükleyip bırakın (ses, metin veya PDF).</li>
+                                    <li>İhtiyacınıza uygun rapor şablonunu seçin.</li>
+                                    <li>İsterseniz rapor başlığı ve açıklaması ekleyin.</li>
+                                    <li>"Rapor Oluştur" butonuna tıklayın ve işlemin tamamlanmasını bekleyin.</li>
+                                </ol>
+                                <p>İşlem tamamlandıktan sonra, raporunuzu görüntüleyebilir, düzenleyebilir ve istediğiniz formatta indirebilirsiniz.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="usageHeadingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#usageCollapseTwo" aria-expanded="false" aria-controls="usageCollapseTwo">
+                                Raporlarımı nasıl düzenleyebilirim?
+                            </button>
+                        </h2>
+                        <div id="usageCollapseTwo" class="accordion-collapse collapse" aria-labelledby="usageHeadingTwo" data-bs-parent="#usageFaqAccordion">
+                            <div class="accordion-body">
+                                <p>Oluşturulan raporlarınızı düzenlemek için:</p>
+                                <ol>
+                                    <li>Dashboard'dan düzenlemek istediğiniz raporu seçin.</li>
+                                    <li>"Raporu Düzenle" butonuna tıklayın.</li>
+                                    <li>Dahili düzenleyici açılacak ve metni, başlıkları, paragrafları düzenleyebileceksiniz.</li>
+                                    <li>Formatlamayı değiştirmek için araç çubuğunu kullanabilirsiniz.</li>
+                                    <li>Değişikliklerinizi tamamladıktan sonra "Değişiklikleri Kaydet" butonuna tıklayın.</li>
+                                </ol>
+                                <p>Ayrıca, raporu farklı bir şablona dönüştürmek için "Şablonu Değiştir" seçeneğini kullanabilirsiniz.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="usageHeadingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#usageCollapseThree" aria-expanded="false" aria-controls="usageCollapseThree">
+                                Raporlarımı hangi formatlarda indirebilirim?
+                            </button>
+                        </h2>
+                        <div id="usageCollapseThree" class="accordion-collapse collapse" aria-labelledby="usageHeadingThree" data-bs-parent="#usageFaqAccordion">
+                            <div class="accordion-body">
+                                <p>Raporlarınızı aşağıdaki formatlarda indirebilirsiniz:</p>
+                                <ul>
+                                    <li><strong>DOCX:</strong> Microsoft Word formatı, tam düzenlenebilir</li>
+                                    <li><strong>PDF:</strong> Taşınabilir Doküman Formatı, baskı için ideal</li>
+                                    <li><strong>TXT:</strong> Düz metin formatı</li>
+                                    <li><strong>MD:</strong> Markdown formatı</li>
+                                </ul>
+                                <p>Rapor görüntüleme sayfasındaki "İndir" menüsünden istediğiniz formatı seçebilirsiniz. Premium ve kurumsal planlarda HTML ve RTF formatları da mevcuttur.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="usageHeadingFour">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#usageCollapseFour" aria-expanded="false" aria-controls="usageCollapseFour">
+                                Özel şablonlar oluşturabilir miyim?
+                            </button>
+                        </h2>
+                        <div id="usageCollapseFour" class="accordion-collapse collapse" aria-labelledby="usageHeadingFour" data-bs-parent="#usageFaqAccordion">
+                            <div class="accordion-body">
+                                <p>Evet, Aylık ve Yıllık plan aboneleri özel şablonlar oluşturabilir:</p>
+                                <ol>
+                                    <li>Dashboard'daki "Şablonlar" bölümüne gidin.</li>
+                                    <li>"Yeni Şablon" butonuna tıklayın.</li>
+                                    <li>Şablon adı ve açıklaması girin.</li>
+                                    <li>Şablon yapısını oluşturmak için bölümler ve alt bölümler ekleyin.</li>
+                                    <li>Her bölüm için stil ve format ayarlarını yapın.</li>
+                                    <li>İsterseniz şablonunuza kurumsal logo ve renk şeması ekleyin.</li>
+                                    <li>"Şablonu Kaydet" butonuna tıklayın.</li>
+                                </ol>
+                                <p>Aylık plan aboneleri 5 özel şablon, Yıllık plan aboneleri sınırsız sayıda özel şablon oluşturabilir.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="usageHeadingFive">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#usageCollapseFive" aria-expanded="false" aria-controls="usageCollapseFive">
+                                Rapor oluşturma işleminin tamamlanması ne kadar sürer?
+                            </button>
+                        </h2>
+                        <div id="usageCollapseFive" class="accordion-collapse collapse" aria-labelledby="usageHeadingFive" data-bs-parent="#usageFaqAccordion">
+                            <div class="accordion-body">
+                                <p>Rapor oluşturma süresi, dosyanızın boyutuna ve türüne bağlı olarak değişir:</p>
+                                <ul>
+                                    <li>Kısa metin dosyaları (1-5 sayfa): 15-30 saniye</li>
+                                    <li>Orta uzunlukta metin veya PDF dosyaları (5-20 sayfa): 30-60 saniye</li>
+                                    <li>Kısa ses kayıtları (5-10 dakika): 1-2 dakika</li>
+                                    <li>Uzun ses kayıtları (10-60 dakika): 2-10 dakika</li>
+                                    <li>Çok uzun ses kayıtları (60+ dakika): 10-30 dakika</li>
+                                </ul>
+                                <p>İşlem süresi, seçtiğiniz AI modeline ve mevcut sistem yoğunluğuna göre de değişebilir. İşlem devam ederken tarayıcınızı kapatabilirsiniz; rapor hazır olduğunda size e-posta ile bildirim gönderilecektir.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="contact-cta text-center mt-5" data-aos="fade-up">
+            <h3>Sorunuza yanıt bulamadınız mı?</h3>
+            <p>Destek ekibimiz size yardımcı olmaktan memnuniyet duyacaktır.</p>
+            <a href="{{ url_for('main.contact') }}" class="btn btn-primary">İletişime Geçin</a>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    /* FAQ Hero Styles */
+    .faq-hero {
+        background: linear-gradient(135deg, #4e73df 0%, #2742af 100%);
+        color: white;
+        padding: 150px 0 100px;
+        position: relative;
+        overflow: hidden;
+        text-align: center;
+    }
+    
+    .hero-title {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        line-height: 1.2;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        opacity: 0.9;
+    }
+    
+    .hero-wave {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 60px;
+        line-height: 0;
+    }
+    
+    .faq-search {
+        max-width: 600px;
+        margin: 0 auto;
+        margin-top: 2rem;
+    }
+    
+    .faq-search .form-control {
+        padding: 12px 20px;
+        border-radius: 30px 0 0 30px;
+        border: none;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        font-size: 1rem;
+    }
+    
+    .faq-search .btn {
+        padding: 12px 25px;
+        border-radius: 0 30px 30px 0;
+        font-weight: 600;
+    }
+    
+    /* Sections Common Styles */
+    .section-padding {
+        padding: 100px 0;
+    }
+    
+    .section-header {
+        margin-bottom: 60px;
+    }
+    
+    .section-header h2 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: #333;
+    }
+    
+    .section-header p {
+        font-size: 1.1rem;
+        color: #666;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+    
+    /* Categories Styles */
+    .categories-wrapper {
+        background: white;
+        border-radius: 15px;
+        padding: 30px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    }
+    
+    .category-item {
+        display: block;
+        text-align: center;
+        padding: 20px;
+        border-radius: 10px;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        color: #555;
+        height: 100%;
+    }
+    
+    .category-item:hover,
+    .category-item.active {
+        background: rgba(78, 115, 223, 0.05);
+        color: #4e73df;
+        transform: translateY(-5px);
+    }
+    
+    .category-icon {
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+        color: #4e73df;
+    }
+    
+    .category-item h3 {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin: 0;
+    }
+    
+    /* Accordion Styles */
+    .accordion-item {
+        border: none;
+        margin-bottom: 15px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        border-radius: 10px !important;
+        overflow: hidden;
+    }
+    
+    .accordion-button {
+        font-weight: 600;
+        padding: 20px 25px;
+        box-shadow: none !important;
+    }
+    
+    .accordion-button:not(.collapsed) {
+        color: #4e73df;
+        background-color: rgba(78, 115, 223, 0.05);
+    }
+    
+    .accordion-body {
+        padding: 20px 25px;
+        color: #666;
+    }
+    
+    .accordion-body p {
+        margin-bottom: 1rem;
+    }
+    
+    .accordion-body p:last-child {
+        margin-bottom: 0;
+    }
+    
+    .accordion-body ul,
+    .accordion-body ol {
+        padding-left: 1.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    /* Contact CTA Styles */
+    .contact-cta {
+        margin-top: 50px;
+        padding: 40px;
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    }
+    
+    .contact-cta h3 {
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: #333;
+    }
+    
+    .contact-cta p {
+        font-size: 1.1rem;
+        color: #666;
+        margin-bottom: 1.5rem;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 991px) {
+        .faq-hero {
+            padding: 130px 0 80px;
+        }
+        
+        .hero-title {
+            font-size: 2.5rem;
+        }
+        
+        .section-header h2 {
+            font-size: 2rem;
+        }
+    }
+    
+    @media (max-width: 767px) {
+        .hero-title {
+            font-size: 2rem;
+        }
+        
+        .faq-search .form-control,
+        .faq-search .btn {
+            font-size: 0.9rem;
+            padding: 10px 15px;
+        }
+        
+        .category-icon {
+            font-size: 2rem;
+        }
+        
+        .category-item h3 {
+            font-size: 1rem;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Kategori bağlantıları için smooth scroll
+        const categoryLinks = document.querySelectorAll('.category-item');
+        
+        categoryLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Aktif sınıfını değiştir
+                categoryLinks.forEach(item => item.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Hedef bölüme smooth scroll
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetSection.offsetTop - 100,
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // FAQ arama fonksiyonu
+        const faqSearch = document.getElementById('faqSearch');
+        const faqSearchBtn = document.getElementById('faqSearchBtn');
+        
+        faqSearchBtn.addEventListener('click', searchFaq);
+        faqSearch.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchFaq();
+            }
+        });
+        
+        function searchFaq() {
+            const searchTerm = faqSearch.value.toLowerCase();
+            
+            if (searchTerm.length < 3) return;
+            
+            // Tüm accordion buttonları
+            const accordionButtons = document.querySelectorAll('.accordion-button');
+            let firstMatch = null;
+            
+            // Tüm accordion içeriğini kapat
+            document.querySelectorAll('.accordion-collapse').forEach(item => {
+                item.classList.remove('show');
+            });
+            
+            accordionButtons.forEach(button => {
+                const text = button.textContent.toLowerCase();
+                const accordionItem = button.closest('.accordion-item');
+                const accordionCollapse = accordionItem.querySelector('.accordion-collapse');
+                
+                if (text.includes(searchTerm)) {
+                    button.classList.remove('collapsed');
+                    accordionCollapse.classList.add('show');
+                    
+                    if (!firstMatch) {
+                        firstMatch = accordionItem;
+                    }
+                    
+                    // Aranan terimi vurgula
+                    const regex = new RegExp(searchTerm, 'gi');
+                    button.innerHTML = button.textContent.replace(regex, match => `<mark>${match}</mark>`);
+                } else {
+                    button.classList.add('collapsed');
+                }
+            });
+            
+            // İlk eşleşmeye scroll yap
+            if (firstMatch) {
+                const parentSection = firstMatch.closest('section');
+                
+                // Önce sekmeyi aktifleştir
+                categoryLinks.forEach(item => {
+                    if (item.getAttribute('href') === '#' + parentSection.id) {
+                        item.classList.add('active');
+                    } else {
+                        item.classList.remove('active');
+                    }
+                });
+                
+                setTimeout(() => {
+                    firstMatch.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 100);
+            }
+        }
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <div class="card shadow-sm">
+            <div class="card-header bg-primary text-white">
+                <h3 class="mb-0">Ayarlar</h3>
+            </div>
+            <div class="card-body">
+                <form method="post" action="{{ url_for('settings') }}">
+                    <div class="mb-3">
+                        <label for="template" class="form-label">Varsayılan Şablon</label>
+                        <select class="form-select" id="template" name="template">
+                            {% for id, name in templates.items() %}
+                            <option value="{{ id }}" {% if id == active_template %}selected{% endif %}>{{ name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="ai_model" class="form-label">Varsayılan AI Modeli</label>
+                        <select class="form-select" id="ai_model" name="ai_model">
+                            {% for model in ai_models %}
+                            <option value="{{ model }}" {% if model == active_model %}selected{% endif %}>{{ model }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="language" class="form-label">Dil</label>
+                        <select class="form-select" id="language" name="language">
+                            <option value="Türkçe" selected>Türkçe</option>
+                            <option value="English">English</option>
+                        </select>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="google_api_key" class="form-label">Google API Anahtarı</label>
+                        <input type="password" class="form-control" id="google_api_key" name="google_api_key" placeholder="API anahtarınızı girin">
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="openai_api_key" class="form-label">OpenAI API Anahtarı</label>
+                        <input type="password" class="form-control" id="openai_api_key" name="openai_api_key" placeholder="API anahtarınızı girin">
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="anthropic_api_key" class="form-label">Anthropic API Anahtarı</label>
+                        <input type="password" class="form-control" id="anthropic_api_key" name="anthropic_api_key" placeholder="API anahtarınızı girin">
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Ayarları Kaydet</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

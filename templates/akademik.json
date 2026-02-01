@@ -1,0 +1,56 @@
+{
+    "name": "Akademik Rapor",
+    "description": "Akademik makale formatında rapor şablonu",
+    "settings": {
+        "main_title": {
+            "alignment": "center",
+            "bold": true,
+            "font_size": 14,
+            "font_name": "Times New Roman",
+            "color": "black"
+        },
+        "headings": {
+            "alignment": "left",
+            "bold": true,
+            "font_size": 12,
+            "font_name": "Times New Roman",
+            "color": "black",
+            "numbered": false
+        },
+        "subheadings": {
+            "alignment": "left",
+            "bold": true,
+            "font_size": 12,
+            "font_name": "Times New Roman",
+            "color": "black",
+            "numbered": false
+        },
+        "text": {
+            "alignment": "justify",
+            "bold": false,
+            "font_size": 12,
+            "font_name": "Times New Roman",
+            "color": "black"
+        },
+        "tables": {
+            "header_background": "lightgray",
+            "header_text_color": "black",
+            "alignment": "center"
+        },
+        "images": {
+            "alignment": "center",
+            "caption_alignment": "center"
+        }
+    },
+    "sections": [
+        "Özet",
+        "Giriş",
+        "Literatür Taraması",
+        "Metodoloji",
+        "Bulgular",
+        "Tartışma",
+        "Sonuç",
+        "Kaynakça"
+    ],
+    "template_file": "akademik_rapor.md"
+}

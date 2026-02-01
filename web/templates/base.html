@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Raporcu - Yapay zeka ile hızlı ve profesyonel raporlar oluşturun">
+    <meta name="keywords" content="rapor, yapay zeka, ai, doküman, deney raporu, otomatik rapor">
+    
+    <title>{% block title %}Raporcu - Yapay Zeka Destekli Rapor Oluşturma{% endblock %}</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    
+    <!-- AOS - Animate On Scroll -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='images/favicon.svg') }}">
+    
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="{{ url_for('main.index') }}">
+                <img src="{{ url_for('static', filename='images/logo.svg') }}" alt="Raporcu Logo" class="logo">
+                Raporcu
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link{% if request.endpoint == 'main.index' %} active{% endif %}" href="{{ url_for('main.index') }}">Ana Sayfa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link{% if request.endpoint == 'main.features' %} active{% endif %}" href="{{ url_for('main.features') }}">Özellikler</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link{% if request.endpoint == 'main.pricing' %} active{% endif %}" href="{{ url_for('main.pricing') }}">Fiyatlandırma</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link{% if request.endpoint == 'contact.index' %} active{% endif %}" href="{{ url_for('contact.index') }}">İletişim</a>
+                    </li>
+                    {% if current_user.is_authenticated %}
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                               data-bs-toggle="dropdown" aria-expanded="false">
+                                {{ current_user.name }}
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="{{ url_for('user.dashboard') }}">Gösterge Paneli</a></li>
+                                <li><a class="dropdown-item" href="{{ url_for('user.reports') }}">Raporlarım</a></li>
+                                <li><a class="dropdown-item" href="{{ url_for('user.subscription') }}">Aboneliğim</a></li>
+                                <li><a class="dropdown-item" href="{{ url_for('user.profile') }}">Profilim</a></li>
+                                {% if current_user.role.name == 'Admin' %}
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="{{ url_for('admin.index') }}">Yönetim Paneli</a></li>
+                                {% endif %}
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="{{ url_for('auth.logout') }}">Çıkış Yap</a></li>
+                            </ul>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link{% if request.endpoint == 'auth.login' %} active{% endif %}" href="{{ url_for('auth.login') }}">Giriş Yap</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn btn-primary" href="{{ url_for('auth.register') }}">Ücretsiz Deneyin</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Flash Mesajları -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="flash-messages container mt-5 pt-5">
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <!-- Ana İçerik -->
+    <main id="content">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h5 class="footer-heading">Hakkımızda</h5>
+                    <p>Raporcu, yapay zeka kullanarak hızlı ve profesyonel raporlar oluşturmanıza yardımcı olan yenilikçi bir platformdur.</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h5 class="footer-heading">Bağlantılar</h5>
+                    <ul class="footer-links">
+                        <li><a href="{{ url_for('main.index') }}">Ana Sayfa</a></li>
+                        <li><a href="{{ url_for('main.features') }}">Özellikler</a></li>
+                        <li><a href="{{ url_for('main.pricing') }}">Fiyatlandırma</a></li>
+                        <li><a href="{{ url_for('contact.index') }}">İletişim</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h5 class="footer-heading">Destek</h5>
+                    <ul class="footer-links">
+                        <li><a href="{{ url_for('main.faq') }}">SSS</a></li>
+                        <li><a href="{{ url_for('main.help') }}">Yardım Merkezi</a></li>
+                        <li><a href="{{ url_for('main.terms') }}">Kullanım Şartları</a></li>
+                        <li><a href="{{ url_for('main.privacy') }}">Gizlilik Politikası</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <h5 class="footer-heading">İletişim</h5>
+                    <ul class="footer-contact">
+                        <li><i class="bi bi-geo-alt-fill"></i> İstanbul, Türkiye</li>
+                        <li><i class="bi bi-envelope-fill"></i> <a href="mailto:info@raporcu.com">info@raporcu.com</a></li>
+                        <li><i class="bi bi-telephone-fill"></i> <a href="tel:+905551234567">+90 555 123 45 67</a></li>
+                    </ul>
+                    <form class="newsletter-form mt-3">
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="E-posta adresiniz" aria-label="E-posta adresiniz">
+                            <button class="btn btn-primary" type="submit">Abone Ol</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <hr class="footer-divider">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="copyright">&copy; {{ current_year }} Raporcu. Tüm hakları saklıdır.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <div class="payment-methods">
+                        <img src="{{ url_for('static', filename='images/payment-methods.png') }}" alt="Ödeme Yöntemleri">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top"><i class="bi bi-arrow-up-circle-fill"></i></a>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    
+    <script>
+        // AOS init
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+        
+        // Navbar scroll behavior
+        window.addEventListener('scroll', function() {
+            var navbar = document.getElementById('mainNav');
+            if (window.scrollY > 50) {
+                navbar.classList.add('navbar-scrolled');
+            } else {
+                navbar.classList.remove('navbar-scrolled');
+            }
+        });
+    </script>
+    
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

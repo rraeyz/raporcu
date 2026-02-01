@@ -1,0 +1,577 @@
+{% extends "base.html" %}
+
+{% block title %}Gizlilik Politikası - Raporcu{% endblock %}
+
+{% block content %}
+<!-- Privacy Hero -->
+<section class="privacy-hero" id="privacy-hero">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8 mx-auto text-center" data-aos="fade-up">
+                <h1 class="hero-title">Gizlilik Politikası</h1>
+                <p class="hero-subtitle">Raporcu olarak veri güvenliğiniz ve gizliliğiniz bizim için önceliklidir</p>
+                <div class="hero-meta">
+                    <span class="meta-item">Son Güncelleme: 01.07.2023</span>
+                    <span class="meta-divider">|</span>
+                    <span class="meta-item">Yürürlük Tarihi: 01.01.2023</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="hero-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill="#ffffff" fill-opacity="1" d="M0,96L60,112C120,128,240,160,360,160C480,160,600,128,720,122.7C840,117,960,139,1080,138.7C1200,139,1320,117,1380,106.7L1440,96L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
+        </svg>
+    </div>
+</section>
+
+<!-- Table of Contents -->
+<section class="toc-section section-padding" id="toc">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="toc-wrapper" data-aos="fade-up">
+                    <h2>İçindekiler</h2>
+                    <div class="toc-list">
+                        <ol>
+                            <li><a href="#introduction">Giriş</a></li>
+                            <li><a href="#data-collection">Topladığımız Veriler</a></li>
+                            <li><a href="#data-usage">Verilerin Kullanımı</a></li>
+                            <li><a href="#data-sharing">Verilerin Paylaşımı</a></li>
+                            <li><a href="#data-security">Veri Güvenliği</a></li>
+                            <li><a href="#user-rights">Kullanıcı Hakları</a></li>
+                            <li><a href="#cookies">Çerezler ve Benzer Teknolojiler</a></li>
+                            <li><a href="#children">Çocukların Gizliliği</a></li>
+                            <li><a href="#changes">Gizlilik Politikasındaki Değişiklikler</a></li>
+                            <li><a href="#contact">İletişim</a></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Privacy Content -->
+<section class="privacy-content section-padding bg-light" id="privacy-content">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="content-wrapper" data-aos="fade-up">
+                    <!-- Introduction -->
+                    <div class="privacy-section" id="introduction">
+                        <h2>1. Giriş</h2>
+                        <p>Raporcu ("biz", "bize" veya "bizim") tarafından işletilen <a href="https://www.raporcu.com">www.raporcu.com</a> web sitesini ve Raporcu yapay zeka destekli rapor oluşturma platformunu ("Hizmet") kullandığınızda, kişisel verilerinizin toplanması, kullanılması ve ifşa edilmesiyle ilgili politikalarımızı ve uygulamalarımızı anlamanız önemlidir. Bu Gizlilik Politikası, Hizmeti kullanımınız sırasında topladığımız kişisel verileri ve bu verilerin nasıl korunduğunu açıklar.</p>
+                        
+                        <p>Bu Gizlilik Politikası, Hizmetimizi kullanımınızı yönetir ve Hizmetimizin tüm kullanıcıları için geçerlidir. Hizmetimizi kullanarak, bu politikada belirtilen uygulamalara onay vermiş olursunuz. Bu politikayı kabul etmiyorsanız, lütfen Hizmetimizi kullanmayın.</p>
+                    </div>
+                    
+                    <!-- Data Collection -->
+                    <div class="privacy-section" id="data-collection">
+                        <h2>2. Topladığımız Veriler</h2>
+                        <p>Hizmetimizi sağlamak ve geliştirmek için çeşitli türlerde kişisel veriler topluyoruz. Topladığımız veri türleri şunları içerir:</p>
+                        
+                        <h3>2.1. Hesap Bilgileri</h3>
+                        <p>Raporcu'ya kaydolduğunuzda, aşağıdaki bilgileri talep edebiliriz:</p>
+                        <ul>
+                            <li>Ad-soyad</li>
+                            <li>E-posta adresi</li>
+                            <li>Şifre (şifrelenmiş formda saklanır)</li>
+                            <li>Profil fotoğrafı (isteğe bağlı)</li>
+                            <li>Telefon numarası (isteğe bağlı)</li>
+                        </ul>
+                        
+                        <h3>2.2. Kullanım Verileri</h3>
+                        <p>Ayrıca, Hizmetimizi nasıl kullandığınızla ilgili bilgileri de toplayabiliriz:</p>
+                        <ul>
+                            <li>IP adresi</li>
+                            <li>Tarayıcı türü ve versiyonu</li>
+                            <li>Kullandığınız cihaz türü</li>
+                            <li>Ziyaret ettiğiniz sayfalar</li>
+                            <li>Ziyaret zamanı ve tarihi</li>
+                            <li>Hizmeti kullanımınızla ilgili diğer teşhis verileri</li>
+                        </ul>
+                        
+                        <h3>2.3. Yüklenen İçerik</h3>
+                        <p>Hizmetimiz, ses dosyaları, metin dosyaları ve diğer belgeler gibi içerikleri yüklemenize olanak tanır. Bu dosyaların içeriği, rapor oluşturma hizmetimizi sağlamak için işlenir. Yüklediğiniz dosyaların içeriği ve bu dosyalardan oluşturulan raporlar kişisel verilerinizin bir parçasını oluşturur.</p>
+                        
+                        <h3>2.4. Ödeme Bilgileri</h3>
+                        <p>Ücretli aboneliklerimizi satın aldığınızda, ödeme bilgilerinizi topluyoruz. Kredi kartı numaraları gibi hassas ödeme bilgileri doğrudan güvenilir üçüncü taraf ödeme işlemcileri tarafından işlenir ve sistemlerimizde saklanmaz. Ancak, fatura adresi ve işlem geçmişi gibi diğer ödeme bilgilerini saklayabiliriz.</p>
+                    </div>
+                    
+                    <!-- Data Usage -->
+                    <div class="privacy-section" id="data-usage">
+                        <h2>3. Verilerin Kullanımı</h2>
+                        <p>Topladığımız verileri aşağıdaki amaçlar için kullanıyoruz:</p>
+                        
+                        <h3>3.1. Hizmetimizi Sağlamak ve Sürdürmek</h3>
+                        <ul>
+                            <li>Hesabınızı oluşturmak ve yönetmek</li>
+                            <li>Size rapor oluşturma hizmetini sağlamak</li>
+                            <li>Yüklediğiniz içerikleri işlemek ve raporlar oluşturmak</li>
+                            <li>Ödeme işlemlerini gerçekleştirmek</li>
+                            <li>Teknik sorunları tespit etmek ve çözmek</li>
+                        </ul>
+                        
+                        <h3>3.2. Hizmetimizi Geliştirmek</h3>
+                        <ul>
+                            <li>Kullanıcı davranışlarını analiz etmek</li>
+                            <li>Hizmetimizin kullanımını izlemek</li>
+                            <li>Yeni özellikler ve iyileştirmeler geliştirmek</li>
+                            <li>Yapay zeka modellerimizi eğitmek ve geliştirmek</li>
+                        </ul>
+                        
+                        <h3>3.3. İletişim Kurmak</h3>
+                        <ul>
+                            <li>Hesabınız ve aboneliğiniz hakkında bildirimler göndermek</li>
+                            <li>Teknik güncellemeler ve destek sağlamak</li>
+                            <li>Pazarlama mesajları göndermek (tercihlerinize bağlı olarak)</li>
+                            <li>Anketler ve geri bildirim formları göndermek</li>
+                        </ul>
+                        
+                        <h3>3.4. Güvenliği Sağlamak</h3>
+                        <ul>
+                            <li>Hesabınızı ve verilerinizi korumak</li>
+                            <li>Dolandırıcılık ve kötüye kullanımı tespit etmek ve önlemek</li>
+                            <li>Yasal yükümlülüklerimizi yerine getirmek</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Data Sharing -->
+                    <div class="privacy-section" id="data-sharing">
+                        <h2>4. Verilerin Paylaşımı</h2>
+                        <p>Kişisel verilerinizin gizliliği bizim için önemlidir. Verilerinizi yalnızca aşağıdaki durumlarda üçüncü taraflarla paylaşırız:</p>
+                        
+                        <h3>4.1. Hizmet Sağlayıcılar</h3>
+                        <p>Hizmetimizi sağlamak ve işletmek için çeşitli üçüncü taraf şirketlerle ve bireylerle çalışıyoruz. Bu hizmet sağlayıcılar, aşağıdaki hizmetleri sağlamak için sınırlı kişisel verilere erişebilir:</p>
+                        <ul>
+                            <li>Ödeme işleme</li>
+                            <li>Hosting ve sunucu hizmetleri</li>
+                            <li>Analitik hizmetleri</li>
+                            <li>E-posta gönderimi</li>
+                            <li>Müşteri destek hizmetleri</li>
+                        </ul>
+                        <p>Bu hizmet sağlayıcılar, verilerinizi yalnızca bizim adımıza belirli görevleri yerine getirmek için kullanabilir ve başka amaçlarla kullanmaktan veya ifşa etmekten sözleşmeyle yasaklanmıştır.</p>
+                        
+                        <h3>4.2. İş Ortakları</h3>
+                        <p>Bazı durumlarda, size daha iyi hizmet sunmak için iş ortaklarımızla işbirliği yapabiliriz. Bu durumda, verilerinizi yalnızca açık onayınızla paylaşırız ve hangi verilerin paylaşılacağı konusunda sizi bilgilendiririz.</p>
+                        
+                        <h3>4.3. Yasal Gereklilikler</h3>
+                        <p>Kişisel verilerinizi şu durumlarda ifşa edebiliriz:</p>
+                        <ul>
+                            <li>Yasal bir yükümlülüğe uymak için</li>
+                            <li>Raporcu'nun haklarını veya mülkiyetini korumak ve savunmak için</li>
+                            <li>Hizmetle ilgili olası suistimalleri önlemek veya araştırmak için</li>
+                            <li>Kullanıcıların veya halkın kişisel güvenliğini korumak için</li>
+                            <li>Yasal sorumluluğa karşı korunmak için</li>
+                        </ul>
+                        
+                        <h3>4.4. İşletme Transferleri</h3>
+                        <p>Bir birleşme, şirket satın alma veya varlık satışı durumunda, kişisel verileriniz aktarılan varlıklar arasında olabilir. Böyle bir durumda, verilerinizin kullanımında herhangi bir değişiklik olursa sizi bilgilendireceğiz.</p>
+                    </div>
+                    
+                    <!-- Data Security -->
+                    <div class="privacy-section" id="data-security">
+                        <h2>5. Veri Güvenliği</h2>
+                        <p>Kişisel verilerinizin güvenliği bizim için çok önemlidir. Verilerinizi kazara kayıp, yetkisiz erişim, değiştirme veya ifşaya karşı korumak için çeşitli güvenlik önlemleri uyguluyoruz.</p>
+                        
+                        <h3>5.1. Güvenlik Önlemleri</h3>
+                        <p>Veri güvenliğini sağlamak için aşağıdaki önlemleri alıyoruz:</p>
+                        <ul>
+                            <li>Tüm veri transferleri SSL şifreleme ile korunur</li>
+                            <li>Şifreler her zaman şifrelenmiş formda saklanır</li>
+                            <li>Veritabanlarımız düzenli olarak yedeklenir</li>
+                            <li>Sistem ve ağ erişimi sıkı kontrollerle sınırlandırılmıştır</li>
+                            <li>Düzenli güvenlik denetimleri ve testleri gerçekleştirilir</li>
+                        </ul>
+                        
+                        <h3>5.2. Veri Saklama</h3>
+                        <p>Kişisel verilerinizi yalnızca bu Gizlilik Politikası'nda belirtilen amaçları gerçekleştirmek için gerekli olduğu sürece saklarız. Hesabınızı sildiğinizde, tüm kişisel verileriniz ve yüklediğiniz içerikler sistemlerimizden kalıcı olarak silinecektir, ancak yasal yükümlülüklerimizi yerine getirmek için gereken veriler (örneğin, fatura kayıtları) daha uzun süre saklanabilir.</p>
+                    </div>
+                    
+                    <!-- User Rights -->
+                    <div class="privacy-section" id="user-rights">
+                        <h2>6. Kullanıcı Hakları</h2>
+                        <p>Kişisel verilerinizle ilgili olarak aşağıdaki haklara sahipsiniz:</p>
+                        
+                        <h3>6.1. Erişim Hakkı</h3>
+                        <p>Hakkınızda hangi kişisel verileri topladığımızı ve işlediğimizi öğrenme hakkına sahipsiniz. Hesap ayarlarınızdan kişisel verilerinizin çoğuna erişebilirsiniz.</p>
+                        
+                        <h3>6.2. Düzeltme Hakkı</h3>
+                        <p>Yanlış veya eksik kişisel verilerinizin düzeltilmesini talep etme hakkına sahipsiniz. Çoğu bilgiyi hesap ayarlarınızdan doğrudan güncelleyebilirsiniz.</p>
+                        
+                        <h3>6.3. Silme Hakkı</h3>
+                        <p>Belirli koşullar altında, kişisel verilerinizin silinmesini talep etme hakkına sahipsiniz. Hesabınızı istediğiniz zaman silme hakkına sahipsiniz, bu durumda tüm kişisel verileriniz sistemlerimizden kaldırılacaktır.</p>
+                        
+                        <h3>6.4. İşlemeyi Kısıtlama Hakkı</h3>
+                        <p>Belirli koşullar altında, kişisel verilerinizin işlenmesini kısıtlamamızı talep etme hakkına sahipsiniz.</p>
+                        
+                        <h3>6.5. Veri Taşınabilirliği Hakkı</h3>
+                        <p>Bize sağladığınız kişisel verileri yapılandırılmış, yaygın olarak kullanılan ve makine tarafından okunabilir bir formatta alma hakkına sahipsiniz.</p>
+                        
+                        <h3>6.6. İtiraz Etme Hakkı</h3>
+                        <p>Belirli koşullar altında, kişisel verilerinizin işlenmesine itiraz etme hakkına sahipsiniz, özellikle doğrudan pazarlama amacıyla işleme durumunda.</p>
+                        
+                        <h3>6.7. Haklarınızı Nasıl Kullanabilirsiniz</h3>
+                        <p>Yukarıdaki haklarınızı kullanmak için, lütfen <a href="mailto:privacy@raporcu.com">privacy@raporcu.com</a> adresine e-posta gönderin. Talebinizi aldıktan sonra en geç 30 gün içinde yanıt vereceğiz.</p>
+                    </div>
+                    
+                    <!-- Cookies -->
+                    <div class="privacy-section" id="cookies">
+                        <h2>7. Çerezler ve Benzer Teknolojiler</h2>
+                        <p>Hizmetimizi sağlamak ve geliştirmek için çerezler ve benzer teknolojiler kullanıyoruz.</p>
+                        
+                        <h3>7.1. Çerezler Nedir?</h3>
+                        <p>Çerezler, cihazınıza yerleştirilen küçük metin dosyalarıdır. Bu dosyalar, web sitesi tercihleri gibi bilgileri hatırlamak ve size daha kişiselleştirilmiş bir deneyim sunmak için kullanılır.</p>
+                        
+                        <h3>7.2. Kullandığımız Çerez Türleri</h3>
+                        <p>Aşağıdaki çerez türlerini kullanıyoruz:</p>
+                        <ul>
+                            <li><strong>Zorunlu Çerezler:</strong> Web sitemizin temel işlevlerini sağlamak için gereklidir.</li>
+                            <li><strong>Tercih Çerezleri:</strong> Dil tercihleri gibi ayarlarınızı hatırlamak için kullanılır.</li>
+                            <li><strong>Analitik Çerezler:</strong> Web sitemizin nasıl kullanıldığını anlamamıza yardımcı olur.</li>
+                            <li><strong>Pazarlama Çerezleri:</strong> İlgi alanlarınıza göre reklamlar göstermek için kullanılır.</li>
+                        </ul>
+                        
+                        <h3>7.3. Çerez Kontrolü</h3>
+                        <p>Çoğu tarayıcı, çerezleri otomatik olarak kabul edecek şekilde ayarlanmıştır, ancak tarayıcı ayarlarınızı değiştirerek çerezleri reddedebilir veya çerez ayarlanmadan önce uyarı alabilirsiniz. Çerezleri devre dışı bırakırsanız, Hizmetimizin bazı özellikleri düzgün çalışmayabilir.</p>
+                    </div>
+                    
+                    <!-- Children's Privacy -->
+                    <div class="privacy-section" id="children">
+                        <h2>8. Çocukların Gizliliği</h2>
+                        <p>Hizmetimiz, 18 yaşın altındaki kişilere yönelik değildir. 18 yaşın altındaki kişilerden bilerek kişisel veri toplamayız. Eğer bir ebeveyn veya vasi iseniz ve çocuğunuzun bize kişisel veriler sağladığını düşünüyorsanız, lütfen <a href="mailto:privacy@raporcu.com">privacy@raporcu.com</a> adresinden bizimle iletişime geçin. 18 yaşın altındaki kişilerden kişisel veri topladığımızı fark edersek, bu bilgileri sunucularımızdan silmek için adımlar atarız.</p>
+                    </div>
+                    
+                    <!-- Changes to Privacy Policy -->
+                    <div class="privacy-section" id="changes">
+                        <h2>9. Gizlilik Politikasındaki Değişiklikler</h2>
+                        <p>Bu Gizlilik Politikası'nı zaman zaman güncelleyebiliriz. Herhangi bir değişiklik olduğunda, web sitemizde yeni Gizlilik Politikası'nı yayınlayacağız ve önemli değişiklikler olması durumunda size bildirim göndereceğiz.</p>
+                        <p>Bu Gizlilik Politikası'ndaki değişiklikleri düzenli olarak gözden geçirmenizi öneririz. Bu sayfada yapılan değişiklikler, hemen yürürlüğe girer.</p>
+                    </div>
+                    
+                    <!-- Contact Information -->
+                    <div class="privacy-section" id="contact">
+                        <h2>10. İletişim</h2>
+                        <p>Bu Gizlilik Politikası hakkında herhangi bir sorunuz varsa veya gizlilik haklarınızı kullanmak istiyorsanız, lütfen bizimle aşağıdaki yollarla iletişime geçin:</p>
+                        <ul>
+                            <li>E-posta: <a href="mailto:privacy@raporcu.com">privacy@raporcu.com</a></li>
+                            <li>Posta: Levent Mah. Büyükdere Cad. No:123, Şişli, İstanbul, 34394</li>
+                            <li>Telefon: +90 (212) 123 45 67</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Download PDF Section -->
+<section class="download-section section-padding" id="download">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="download-wrapper text-center" data-aos="fade-up">
+                    <h2>Gizlilik Politikasını İndirin</h2>
+                    <p>Gizlilik Politikamızı PDF formatında indirerek offline olarak da inceleyebilirsiniz.</p>
+                    <a href="{{ url_for('static', filename='docs/privacy-policy.pdf') }}" class="btn btn-primary" download>
+                        <i class="bi bi-file-earmark-pdf"></i> PDF Olarak İndir
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    /* Privacy Hero Styles */
+    .privacy-hero {
+        background: linear-gradient(135deg, #4e73df 0%, #2742af 100%);
+        color: white;
+        padding: 150px 0 100px;
+        position: relative;
+        overflow: hidden;
+        text-align: center;
+    }
+    
+    .hero-title {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        line-height: 1.2;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+        opacity: 0.9;
+    }
+    
+    .hero-meta {
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.8);
+    }
+    
+    .meta-item {
+        display: inline-block;
+        margin: 0 5px;
+    }
+    
+    .meta-divider {
+        display: inline-block;
+        color: rgba(255, 255, 255, 0.5);
+    }
+    
+    .hero-wave {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 60px;
+        line-height: 0;
+    }
+    
+    /* Sections Common Styles */
+    .section-padding {
+        padding: 80px 0;
+    }
+    
+    /* Table of Contents Styles */
+    .toc-wrapper {
+        background: white;
+        border-radius: 15px;
+        padding: 40px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    }
+    
+    .toc-wrapper h2 {
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin-bottom: 25px;
+        color: #333;
+        border-bottom: 2px solid #f0f0f0;
+        padding-bottom: 15px;
+    }
+    
+    .toc-list ol {
+        counter-reset: item;
+        list-style-type: none;
+        padding-left: 0;
+    }
+    
+    .toc-list ol li {
+        counter-increment: item;
+        margin-bottom: 15px;
+        position: relative;
+        padding-left: 35px;
+        font-weight: 500;
+    }
+    
+    .toc-list ol li:before {
+        content: counter(item) ".";
+        position: absolute;
+        left: 0;
+        color: #4e73df;
+        font-weight: 700;
+        width: 25px;
+        text-align: right;
+        padding-right: 10px;
+    }
+    
+    .toc-list ol li a {
+        color: #333;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+    
+    .toc-list ol li a:hover {
+        color: #4e73df;
+        text-decoration: underline;
+    }
+    
+    /* Content Styles */
+    .content-wrapper {
+        background: white;
+        border-radius: 15px;
+        padding: 50px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    }
+    
+    .privacy-section {
+        margin-bottom: 50px;
+        padding-bottom: 30px;
+        border-bottom: 1px solid #f0f0f0;
+    }
+    
+    .privacy-section:last-child {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        border-bottom: none;
+    }
+    
+    .privacy-section h2 {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 25px;
+        color: #333;
+    }
+    
+    .privacy-section h3 {
+        font-size: 1.4rem;
+        font-weight: 600;
+        margin: 25px 0 15px;
+        color: #444;
+    }
+    
+    .privacy-section p {
+        font-size: 1.05rem;
+        line-height: 1.7;
+        color: #555;
+        margin-bottom: 15px;
+    }
+    
+    .privacy-section ul, 
+    .privacy-section ol {
+        margin-bottom: 20px;
+        padding-left: 20px;
+    }
+    
+    .privacy-section li {
+        font-size: 1.05rem;
+        line-height: 1.7;
+        color: #555;
+        margin-bottom: 10px;
+    }
+    
+    .privacy-section a {
+        color: #4e73df;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+    
+    .privacy-section a:hover {
+        text-decoration: underline;
+    }
+    
+    /* Download Section Styles */
+    .download-wrapper {
+        background: white;
+        border-radius: 15px;
+        padding: 40px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    }
+    
+    .download-wrapper h2 {
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin-bottom: 15px;
+        color: #333;
+    }
+    
+    .download-wrapper p {
+        font-size: 1.1rem;
+        color: #666;
+        margin-bottom: 25px;
+    }
+    
+    .download-wrapper .btn {
+        padding: 12px 25px;
+        font-weight: 600;
+    }
+    
+    .download-wrapper .btn i {
+        margin-right: 8px;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 991px) {
+        .privacy-hero {
+            padding: 130px 0 80px;
+        }
+        
+        .hero-title {
+            font-size: 2.5rem;
+        }
+        
+        .content-wrapper {
+            padding: 30px;
+        }
+        
+        .privacy-section h2 {
+            font-size: 1.8rem;
+        }
+        
+        .privacy-section h3 {
+            font-size: 1.3rem;
+        }
+    }
+    
+    @media (max-width: 767px) {
+        .hero-title {
+            font-size: 2rem;
+        }
+        
+        .toc-wrapper {
+            padding: 25px;
+        }
+        
+        .content-wrapper {
+            padding: 25px;
+        }
+        
+        .privacy-section h2 {
+            font-size: 1.6rem;
+        }
+        
+        .privacy-section h3 {
+            font-size: 1.2rem;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // İçindekiler bağlantıları için smooth scroll
+        const tocLinks = document.querySelectorAll('.toc-list a');
+        
+        tocLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetSection.offsetTop - 100,
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Aktif bölümü vurgulama
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('.privacy-section');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 150;
+                const sectionHeight = section.offsetHeight;
+                const scrollPosition = window.scrollY;
+                
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    const id = section.getAttribute('id');
+                    tocLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === '#' + id) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        });
+    });
+</script>
+{% endblock %}

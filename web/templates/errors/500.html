@@ -1,0 +1,435 @@
+{% extends "base.html" %}
+
+{% block title %}Sunucu Hatası - Raporcu{% endblock %}
+
+{% block content %}
+<!-- 500 Error Section -->
+<section class="error-section section-padding">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center" data-aos="fade-up">
+                <div class="error-wrapper">
+                    <div class="error-code">500</div>
+                    <h1 class="error-title">Sunucu Hatası</h1>
+                    <p class="error-desc">Üzgünüz, sunucuda beklenmeyen bir hata oluştu. Teknik ekibimiz sorunu çözmek için çalışıyor.</p>
+                    <div class="error-actions">
+                        <a href="{{ url_for('main.index') }}" class="btn btn-primary">
+                            <i class="bi bi-house-door"></i> Ana Sayfaya Dön
+                        </a>
+                        <a href="{{ url_for('main.contact') }}" class="btn btn-outline-primary">
+                            <i class="bi bi-chat-dots"></i> Bize Ulaşın
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Help Section -->
+<section class="help-section section-padding bg-light">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center" data-aos="fade-up">
+                <h2 class="section-title">Yardımcı Olabilecek Adımlar</h2>
+                <p class="section-desc">Bu hatayla karşılaştığınız için özür dileriz. Aşağıdaki adımları deneyebilir veya destek ekibimizle iletişime geçebilirsiniz.</p>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="help-card">
+                    <div class="help-card-header">
+                        <div class="help-icon">
+                            <i class="bi bi-arrow-clockwise"></i>
+                        </div>
+                        <h3>Deneyin</h3>
+                    </div>
+                    <div class="help-card-body">
+                        <ul class="help-list">
+                            <li>
+                                <div class="help-step">1</div>
+                                <div class="help-text">Sayfayı yenileyin</div>
+                            </li>
+                            <li>
+                                <div class="help-step">2</div>
+                                <div class="help-text">Tarayıcınızın önbelleğini temizleyin</div>
+                            </li>
+                            <li>
+                                <div class="help-step">3</div>
+                                <div class="help-text">Birkaç dakika sonra tekrar deneyin</div>
+                            </li>
+                            <li>
+                                <div class="help-step">4</div>
+                                <div class="help-text">Farklı bir tarayıcı kullanın</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="help-card">
+                    <div class="help-card-header">
+                        <div class="help-icon">
+                            <i class="bi bi-headset"></i>
+                        </div>
+                        <h3>Destek Alın</h3>
+                    </div>
+                    <div class="help-card-body">
+                        <p>Sorun devam ediyorsa, lütfen aşağıdaki yollarla bize ulaşın:</p>
+                        <div class="support-info">
+                            <div class="support-item">
+                                <i class="bi bi-envelope"></i>
+                                <span>destek@raporcu.com</span>
+                            </div>
+                            <div class="support-item">
+                                <i class="bi bi-telephone"></i>
+                                <span>+90 (212) 123 45 67</span>
+                            </div>
+                            <div class="support-item">
+                                <i class="bi bi-chat-dots"></i>
+                                <span>Canlı Destek (09:00 - 18:00)</span>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <a href="{{ url_for('main.contact') }}" class="btn btn-primary btn-block">
+                                <i class="bi bi-chat-dots"></i> İletişim Formu
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Error Report Section -->
+<section class="report-section section-padding">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8" data-aos="fade-up">
+                <div class="report-wrapper text-center">
+                    <h2 class="section-title">Hatayı Bildirin</h2>
+                    <p>Bu hatayı bildirmek, teknik ekibimizin sorunu daha hızlı çözmesine yardımcı olabilir.</p>
+                    <button id="reportErrorBtn" class="btn btn-outline-primary mt-3">
+                        <i class="bi bi-bug"></i> Hata Raporu Gönder
+                    </button>
+                    
+                    <div id="errorReportForm" class="mt-4" style="display: none;">
+                        <form action="{{ url_for('main.report_error') }}" method="post" class="text-start">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="name" class="form-label">Adınız</label>
+                                    <input type="text" class="form-control" id="name" name="name">
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="email" class="form-label">E-posta Adresiniz</label>
+                                    <input type="email" class="form-control" id="email" name="email">
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="url" class="form-label">Hata Alınan Sayfa URL'i</label>
+                                <input type="text" class="form-control" id="url" name="url" value="{{ request.url }}" readonly>
+                            </div>
+                            <div class="mb-3">
+                                <label for="description" class="form-label">Hata Açıklaması</label>
+                                <textarea class="form-control" id="description" name="description" rows="4" placeholder="Hatayı almadan önce ne yapıyordunuz? Hata ne zaman oluştu?"></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="steps" class="form-label">Hatayı Tekrarlama Adımları</label>
+                                <textarea class="form-control" id="steps" name="steps" rows="3" placeholder="Hatayı tekrar oluşturmak için gereken adımları yazın (isteğe bağlı)"></textarea>
+                            </div>
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="browser_info" name="browser_info" checked>
+                                <label class="form-check-label" for="browser_info">Tarayıcı ve sistem bilgilerimi otomatik olarak ekle</label>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary">Raporu Gönder</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    /* Error Section Styles */
+    .error-section {
+        padding: 150px 0 80px;
+    }
+    
+    .error-wrapper {
+        background-color: #fff;
+        border-radius: 15px;
+        padding: 60px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    }
+    
+    .error-code {
+        font-size: 10rem;
+        font-weight: 800;
+        color: #e74a3b;
+        line-height: 1;
+        margin-bottom: 20px;
+        text-shadow: 3px 3px 0 rgba(231, 74, 59, 0.2);
+    }
+    
+    .error-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+        color: #333;
+    }
+    
+    .error-desc {
+        font-size: 1.2rem;
+        color: #666;
+        margin-bottom: 30px;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .error-actions {
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .error-actions .btn {
+        padding: 12px 25px;
+        font-weight: 600;
+    }
+    
+    .error-actions .btn i {
+        margin-right: 8px;
+    }
+    
+    /* Help Section Styles */
+    .help-section {
+        padding: 80px 0;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+        color: #333;
+    }
+    
+    .section-desc {
+        font-size: 1.1rem;
+        color: #666;
+        margin-bottom: 30px;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .help-card {
+        background-color: #fff;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        height: 100%;
+        overflow: hidden;
+    }
+    
+    .help-card-header {
+        background-color: #f8f9fa;
+        padding: 25px;
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid #eee;
+    }
+    
+    .help-icon {
+        width: 50px;
+        height: 50px;
+        background-color: rgba(78, 115, 223, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 15px;
+    }
+    
+    .help-icon i {
+        font-size: 1.5rem;
+        color: #4e73df;
+    }
+    
+    .help-card-header h3 {
+        font-size: 1.3rem;
+        font-weight: 600;
+        margin-bottom: 0;
+        color: #333;
+    }
+    
+    .help-card-body {
+        padding: 30px;
+    }
+    
+    .help-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .help-list li {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+    
+    .help-list li:last-child {
+        margin-bottom: 0;
+    }
+    
+    .help-step {
+        width: 30px;
+        height: 30px;
+        background-color: #4e73df;
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+        margin-right: 15px;
+        flex-shrink: 0;
+    }
+    
+    .help-text {
+        font-size: 1.05rem;
+        color: #555;
+    }
+    
+    .support-info {
+        margin-top: 20px;
+    }
+    
+    .support-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+    
+    .support-item i {
+        font-size: 1.2rem;
+        color: #4e73df;
+        margin-right: 15px;
+        width: 20px;
+        text-align: center;
+    }
+    
+    .support-item span {
+        font-size: 1.05rem;
+        color: #555;
+    }
+    
+    .btn-block {
+        width: 100%;
+    }
+    
+    /* Report Section Styles */
+    .report-section {
+        padding: 80px 0;
+    }
+    
+    .report-wrapper {
+        background-color: #fff;
+        border-radius: 15px;
+        padding: 40px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 991px) {
+        .error-section {
+            padding: 120px 0 60px;
+        }
+        
+        .error-wrapper {
+            padding: 40px;
+        }
+        
+        .error-code {
+            font-size: 8rem;
+        }
+        
+        .error-title {
+            font-size: 2rem;
+        }
+        
+        .error-desc {
+            font-size: 1.1rem;
+        }
+        
+        .help-card {
+            margin-bottom: 30px;
+        }
+    }
+    
+    @media (max-width: 767px) {
+        .error-section {
+            padding: 100px 0 40px;
+        }
+        
+        .error-wrapper {
+            padding: 30px;
+        }
+        
+        .error-code {
+            font-size: 6rem;
+        }
+        
+        .error-title {
+            font-size: 1.8rem;
+        }
+        
+        .error-desc {
+            font-size: 1rem;
+        }
+        
+        .section-title {
+            font-size: 1.6rem;
+        }
+        
+        .report-wrapper {
+            padding: 30px;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // AOS animasyonları için
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+        
+        // Hata raporu formunu gösterme/gizleme
+        const reportErrorBtn = document.getElementById('reportErrorBtn');
+        const errorReportForm = document.getElementById('errorReportForm');
+        
+        if (reportErrorBtn && errorReportForm) {
+            reportErrorBtn.addEventListener('click', function() {
+                if (errorReportForm.style.display === 'none') {
+                    errorReportForm.style.display = 'block';
+                    reportErrorBtn.innerHTML = '<i class="bi bi-x-circle"></i> Formu Gizle';
+                } else {
+                    errorReportForm.style.display = 'none';
+                    reportErrorBtn.innerHTML = '<i class="bi bi-bug"></i> Hata Raporu Gönder';
+                }
+            });
+        }
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,61 @@
+1. Lazy Loading - Modellerin yüklenmesini geciktirin:
+
+Whisper modeli yalnızca gerçekten kullanıldığında yüklensin
+AI servisleri için aynı şekilde yapılandırın (şu anda ai_service.py'da başlangıçta yüklemeye çalışıyor olabilir)
+
+2.Threading ve Asenkron İşlemler - Mevcut thread kullanımınız iyi ancak:
+
+initialize_services'de tüm servisleri tek thread'de başlatıyorsunuz, bunları ayrı thread'lere bölerek paralelleştirin
+API isteklerini asenkron yapın (asyncio kullanarak)
+
+3.Önbellek Mekanizması:
+
+Whisper sonuçları ve API yanıtları için önbellek ekleyin
+Aynı ses dosyasını tekrar işlemeyi önlemek için hash tabanlı önbellek kullanın
+
+4.Ses İşleme Optimizasyonları:
+
+split_audio fonksiyonunda dosya yazma/okuma yerine bellek içi işleme yapın
+FFmpeg çağrılarını daha verimli yapılandırın
+
+5.Rapor Şablonları:
+
+Farklı deney türleri için özelleştirilebilir şablonlar ekleyin
+Kullanıcının kendi şablonlarını kaydedebilmesi
+
+6.Veri Kaybını Önleme:
+
+Otomatik kaydetme özelliği
+Rapor taslağı oluşturma sırasında veri kaybını önleme
+
+7.Kullanıcı Deneyimi İyileştirmeleri:
+
+İlerleme göstergeleri (şu anda ses işleme ve AI yanıt beklerken durum var, ancak daha ayrıntılı olabilir)
+Koyu/açık tema seçeneği
+Yazı tipi boyutu ayarları
+
+8.Rapor İçeriği İyileştirme:
+
+Görsel ekleme (deney sonuçları için grafikler, diyagramlar)
+Tablo ve matematiksel formül desteği
+Kaynak yöneticisi
+
+9.Exception Handling:
+
+Hata mesajlarını daha spesifik ve kullanıcı dostu hale getirin
+Hataları daha iyi sınıflandırın (ağ hatası, API hatası, dosya hatası vb.)
+
+10.Config Yönetimi:
+
+Ayarları JSON yerine SQLite'a taşıyın (daha hızlı ve güvenli)
+Hassas bilgileri (API anahtarları) şifreleyin
+
+11.Requirements Dosyasını Düzenleme:
+
+Sadece gerekli paketleri içeren güncellenmiş bir requirements.txt
+
+12.Kurulum ve Başlat Bat Dosyaları:
+
+FFmpeg dosyalarını System32'ye taşımak yerine, PATH'e ekleyin veya yerel olarak çalıştırın
+
+13. main.py de def save report fonksiyonu düzeltilecek. sabit bir uzantı olmasın. kullanıcı dosya tipini ne seçerse o şekilde kaydetsin

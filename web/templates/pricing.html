@@ -1,0 +1,903 @@
+{% extends "base.html" %}
+
+{% block title %}Fiyatlandırma - Raporcu{% endblock %}
+
+{% block content %}
+<!-- Pricing Hero -->
+<section class="pricing-hero" id="pricing-hero">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8 mx-auto text-center" data-aos="fade-up">
+                <h1 class="hero-title">Esnek Fiyatlandırma Planları</h1>
+                <p class="hero-subtitle">İhtiyaçlarınıza ve bütçenize uygun fiyatlandırma seçenekleriyle Raporcu'yu kullanmaya başlayın</p>
+                <div class="pricing-toggle">
+                    <span class="pricing-toggle-text active">Aylık</span>
+                    <label class="switch mx-2">
+                        <input type="checkbox" id="pricingToggle">
+                        <span class="slider round"></span>
+                    </label>
+                    <span class="pricing-toggle-text">Yıllık</span>
+                    <span class="pricing-save-badge">%16 Tasarruf</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="hero-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill="#ffffff" fill-opacity="1" d="M0,96L60,112C120,128,240,160,360,160C480,160,600,128,720,122.7C840,117,960,139,1080,138.7C1200,139,1320,117,1380,106.7L1440,96L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
+        </svg>
+    </div>
+</section>
+
+<!-- Main Pricing Section -->
+<section class="main-pricing section-padding" id="main-pricing">
+    <div class="container">
+        <div class="row justify-content-center">
+            <!-- Free Plan -->
+            <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="price-card">
+                    <div class="price-header">
+                        <h3>Deneme</h3>
+                        <div class="price">
+                            <span class="amount">Ücretsiz</span>
+                            <span class="period">7 gün</span>
+                        </div>
+                    </div>
+                    <div class="price-features">
+                        <ul>
+                            <li><i class="bi bi-check-circle-fill"></i> 3 Rapor Hakkı</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Temel Şablonlar</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Standart AI Modelleri</li>
+                            <li><i class="bi bi-check-circle-fill"></i> PDF ve DOCX Çıktı</li>
+                            <li><i class="bi bi-check-circle-fill"></i> E-posta Desteği</li>
+                            <li class="disabled"><i class="bi bi-x-circle-fill"></i> Bulut Depolama</li>
+                            <li class="disabled"><i class="bi bi-x-circle-fill"></i> Özel Şablonlar</li>
+                            <li class="disabled"><i class="bi bi-x-circle-fill"></i> Gelişmiş AI Modelleri</li>
+                        </ul>
+                    </div>
+                    <div class="price-footer">
+                        <a href="{{ url_for('auth.register') }}" class="btn btn-outline-primary btn-block">Kaydol</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Basic Plan -->
+            <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="price-card">
+                    <div class="price-header">
+                        <h3>Haftalık</h3>
+                        <div class="price monthly-price">
+                            <span class="currency">₺</span>
+                            <span class="amount">49</span>
+                            <span class="period">/hafta</span>
+                        </div>
+                        <div class="price yearly-price" style="display: none;">
+                            <span class="currency">₺</span>
+                            <span class="amount">41</span>
+                            <span class="period">/hafta</span>
+                        </div>
+                    </div>
+                    <div class="price-features">
+                        <ul>
+                            <li><i class="bi bi-check-circle-fill"></i> 10 Rapor/Hafta</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Temel Şablonlar</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Standart AI Modelleri</li>
+                            <li><i class="bi bi-check-circle-fill"></i> PDF ve DOCX Çıktı</li>
+                            <li><i class="bi bi-check-circle-fill"></i> E-posta Desteği</li>
+                            <li><i class="bi bi-check-circle-fill"></i> 5GB Bulut Depolama</li>
+                            <li class="disabled"><i class="bi bi-x-circle-fill"></i> Özel Şablonlar</li>
+                            <li class="disabled"><i class="bi bi-x-circle-fill"></i> Gelişmiş AI Modelleri</li>
+                        </ul>
+                    </div>
+                    <div class="price-footer">
+                        <a href="{{ url_for('payment.checkout', plan_id='weekly') }}" class="btn btn-outline-primary btn-block monthly-btn">Şimdi Başla</a>
+                        <a href="{{ url_for('payment.checkout', plan_id='weekly_yearly') }}" class="btn btn-outline-primary btn-block yearly-btn" style="display: none;">Şimdi Başla</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Standard Plan -->
+            <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="price-card featured">
+                    <div class="price-badge">En Popüler</div>
+                    <div class="price-header">
+                        <h3>Aylık</h3>
+                        <div class="price monthly-price">
+                            <span class="currency">₺</span>
+                            <span class="amount">149</span>
+                            <span class="period">/ay</span>
+                        </div>
+                        <div class="price yearly-price" style="display: none;">
+                            <span class="currency">₺</span>
+                            <span class="amount">124</span>
+                            <span class="period">/ay</span>
+                        </div>
+                    </div>
+                    <div class="price-features">
+                        <ul>
+                            <li><i class="bi bi-check-circle-fill"></i> 50 Rapor/Ay</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Tüm Şablonlar</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Gelişmiş AI Modelleri</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Tüm Çıktı Formatları</li>
+                            <li><i class="bi bi-check-circle-fill"></i> 7/24 Öncelikli Destek</li>
+                            <li><i class="bi bi-check-circle-fill"></i> 20GB Bulut Depolama</li>
+                            <li><i class="bi bi-check-circle-fill"></i> 5 Özel Şablon</li>
+                            <li class="disabled"><i class="bi bi-x-circle-fill"></i> Özel AI Modelleri</li>
+                        </ul>
+                    </div>
+                    <div class="price-footer">
+                        <a href="{{ url_for('payment.checkout', plan_id='monthly') }}" class="btn btn-primary btn-block monthly-btn">Şimdi Başla</a>
+                        <a href="{{ url_for('payment.checkout', plan_id='monthly_yearly') }}" class="btn btn-primary btn-block yearly-btn" style="display: none;">Şimdi Başla</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Premium Plan -->
+            <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="400">
+                <div class="price-card">
+                    <div class="price-header">
+                        <h3>Yıllık</h3>
+                        <div class="price monthly-price">
+                            <span class="currency">₺</span>
+                            <span class="amount">1,490</span>
+                            <span class="period">/yıl</span>
+                        </div>
+                        <div class="price yearly-price" style="display: none;">
+                            <span class="currency">₺</span>
+                            <span class="amount">1,490</span>
+                            <span class="period">/yıl</span>
+                        </div>
+                    </div>
+                    <div class="price-features">
+                        <ul>
+                            <li><i class="bi bi-check-circle-fill"></i> Sınırsız Rapor</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Tüm Şablonlar</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Tüm AI Modelleri</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Tüm Çıktı Formatları</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Özel Destek Yöneticisi</li>
+                            <li><i class="bi bi-check-circle-fill"></i> 100GB Bulut Depolama</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Sınırsız Özel Şablon</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Özel AI Modelleri</li>
+                        </ul>
+                    </div>
+                    <div class="price-footer">
+                        <a href="{{ url_for('payment.checkout', plan_id='yearly') }}" class="btn btn-outline-primary btn-block">Şimdi Başla</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Compare Plans -->
+<section class="compare-plans section-padding bg-light" id="compare-plans">
+    <div class="container">
+        <div class="section-header text-center" data-aos="fade-up">
+            <h2>Plan Karşılaştırması</h2>
+            <p>Tüm planların özelliklerini karşılaştırın ve ihtiyacınıza en uygun olanı seçin</p>
+        </div>
+        
+        <div class="table-responsive" data-aos="fade-up">
+            <table class="table comparison-table">
+                <thead>
+                    <tr>
+                        <th>Özellikler</th>
+                        <th class="text-center">Deneme</th>
+                        <th class="text-center">Haftalık</th>
+                        <th class="text-center highlight">Aylık</th>
+                        <th class="text-center">Yıllık</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="feature-name">Rapor Hakkı</td>
+                        <td class="text-center">3 Toplam</td>
+                        <td class="text-center">10/Hafta</td>
+                        <td class="text-center highlight">50/Ay</td>
+                        <td class="text-center">Sınırsız</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Şablonlar</td>
+                        <td class="text-center">Temel (3)</td>
+                        <td class="text-center">Temel (5)</td>
+                        <td class="text-center highlight">Tüm Şablonlar</td>
+                        <td class="text-center">Tüm Şablonlar + Özel</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">AI Modelleri</td>
+                        <td class="text-center">Standart</td>
+                        <td class="text-center">Standart</td>
+                        <td class="text-center highlight">Gelişmiş</td>
+                        <td class="text-center">Tüm Modeller + Özel</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Çıktı Formatları</td>
+                        <td class="text-center">PDF, DOCX</td>
+                        <td class="text-center">PDF, DOCX</td>
+                        <td class="text-center highlight">Tüm Formatlar</td>
+                        <td class="text-center">Tüm Formatlar</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Bulut Depolama</td>
+                        <td class="text-center"><i class="bi bi-x text-danger"></i></td>
+                        <td class="text-center">5GB</td>
+                        <td class="text-center highlight">20GB</td>
+                        <td class="text-center">100GB</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Rapor Düzenleme</td>
+                        <td class="text-center"><i class="bi bi-check text-success"></i></td>
+                        <td class="text-center"><i class="bi bi-check text-success"></i></td>
+                        <td class="text-center highlight"><i class="bi bi-check text-success"></i></td>
+                        <td class="text-center"><i class="bi bi-check text-success"></i></td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Öncelikli Destek</td>
+                        <td class="text-center"><i class="bi bi-x text-danger"></i></td>
+                        <td class="text-center"><i class="bi bi-x text-danger"></i></td>
+                        <td class="text-center highlight"><i class="bi bi-check text-success"></i></td>
+                        <td class="text-center"><i class="bi bi-check text-success"></i></td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Özel Destek Yöneticisi</td>
+                        <td class="text-center"><i class="bi bi-x text-danger"></i></td>
+                        <td class="text-center"><i class="bi bi-x text-danger"></i></td>
+                        <td class="text-center highlight"><i class="bi bi-x text-danger"></i></td>
+                        <td class="text-center"><i class="bi bi-check text-success"></i></td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">API Erişimi</td>
+                        <td class="text-center"><i class="bi bi-x text-danger"></i></td>
+                        <td class="text-center"><i class="bi bi-x text-danger"></i></td>
+                        <td class="text-center highlight"><i class="bi bi-x text-danger"></i></td>
+                        <td class="text-center"><i class="bi bi-check text-success"></i></td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Toplu İşleme</td>
+                        <td class="text-center"><i class="bi bi-x text-danger"></i></td>
+                        <td class="text-center"><i class="bi bi-x text-danger"></i></td>
+                        <td class="text-center highlight"><i class="bi bi-check text-success"></i></td>
+                        <td class="text-center"><i class="bi bi-check text-success"></i></td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Çoklu Dil Desteği</td>
+                        <td class="text-center">Temel (2)</td>
+                        <td class="text-center">Temel (3)</td>
+                        <td class="text-center highlight">Gelişmiş (10+)</td>
+                        <td class="text-center">Tümü (20+)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<!-- Enterprise Section -->
+<section class="enterprise-section section-padding" id="enterprise-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6" data-aos="fade-right">
+                <div class="enterprise-content">
+                    <h2>Kurumsal Çözümler</h2>
+                    <p class="lead">Şirketinizin ihtiyaçlarına özel çözümler için bizimle iletişime geçin.</p>
+                    <p>Raporcu'nun kurumsal sürümü, şirketinizin ölçeğine ve ihtiyaçlarına göre özelleştirilebilir. Özel entegrasyonlar, beyaz etiketli çözümler ve daha fazlası için kurumsal ekibimiz sizinle iletişime geçecektir.</p>
+                    
+                    <div class="enterprise-features">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="feature-item">
+                                    <i class="bi bi-shield-check"></i>
+                                    <span>Gelişmiş Güvenlik</span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="feature-item">
+                                    <i class="bi bi-people"></i>
+                                    <span>Kullanıcı Yönetimi</span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="feature-item">
+                                    <i class="bi bi-hdd-network"></i>
+                                    <span>Özel Sunucu Seçenekleri</span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="feature-item">
+                                    <i class="bi bi-building"></i>
+                                    <span>Şirket İçi Kurulum</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="{{ url_for('main.contact') }}?subject=Kurumsal%20Çözümler" class="btn btn-primary mt-4">İletişime Geçin</a>
+                </div>
+            </div>
+            <div class="col-lg-6" data-aos="fade-left">
+                <div class="enterprise-image">
+                    <img src="{{ url_for('static', filename='images/enterprise.svg') }}" alt="Kurumsal Çözümler" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="faq-section section-padding bg-light" id="faq-section">
+    <div class="container">
+        <div class="section-header text-center" data-aos="fade-up">
+            <h2>Sıkça Sorulan Sorular</h2>
+            <p>Fiyatlandırma ve aboneliklerle ilgili en çok sorulan sorular</p>
+        </div>
+        
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="accordion" id="pricingFaqAccordion" data-aos="fade-up">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Aboneliğimi ne zaman iptal edebilirim?
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#pricingFaqAccordion">
+                            <div class="accordion-body">
+                                Aboneliğinizi istediğiniz zaman hesap ayarlarınızdan iptal edebilirsiniz. İptal ettiğinizde, abonelik döneminin sonuna kadar hizmetlerimizi kullanmaya devam edebilirsiniz. Abonelik döneminin sonunda hesabınız otomatik olarak ücretsiz sürüme geçirilir.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Kullanmadığım rapor haklarım bir sonraki döneme aktarılır mı?
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#pricingFaqAccordion">
+                            <div class="accordion-body">
+                                Hayır, kullanılmayan rapor hakları bir sonraki dönemde sıfırlanır ve aktarılmaz. Her yeni dönem başlangıcında, planınıza göre belirlenmiş rapor hakkı yeniden tanımlanır.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                Planımı yükseltmek veya düşürmek istersem ne yapmalıyım?
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#pricingFaqAccordion">
+                            <div class="accordion-body">
+                                Hesap ayarlarınızdan istediğiniz zaman planınızı değiştirebilirsiniz. Yükseltme işlemi anında gerçekleşir ve fiyat farkı orantılı olarak hesaplanır. Plan düşürme işlemi mevcut abonelik döneminin sonunda geçerli olur.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingFour">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                Ödeme yöntemlerinde hangi seçenekler sunuluyor?
+                            </button>
+                        </h2>
+                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#pricingFaqAccordion">
+                            <div class="accordion-body">
+                                Kredi kartı, banka kartı, havale/EFT ve online ödeme sistemleri ile ödeme yapabilirsiniz. Kurumsal müşterilerimiz için fatura karşılığı ödeme seçeneği de sunulmaktadır.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingFive">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                İade politikanız nedir?
+                            </button>
+                        </h2>
+                        <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#pricingFaqAccordion">
+                            <div class="accordion-body">
+                                Ödemeden sonraki 14 gün içinde, eğer hizmetimizden memnun kalmazsanız ve 3'ten az rapor oluşturduysanız, ücret iadesi talep edebilirsiniz. İade talepleriniz için destek@raporcu.com adresine e-posta gönderebilirsiniz.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta section-padding" id="cta">
+    <div class="container">
+        <div class="cta-inner" data-aos="zoom-in">
+            <div class="row align-items-center">
+                <div class="col-lg-8 col-md-7">
+                    <h2>Hemen Başlayın, 7 Gün Ücretsiz Deneyin</h2>
+                    <p>Kredi kartı gerekmeden hemen kaydolun ve Raporcu'nun tüm özelliklerini keşfedin.</p>
+                </div>
+                <div class="col-lg-4 col-md-5 text-md-end">
+                    <a href="{{ url_for('auth.register') }}" class="btn btn-light btn-lg">Ücretsiz Başlayın</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    /* Pricing Hero Styles */
+    .pricing-hero {
+        background: linear-gradient(135deg, #4e73df 0%, #2742af 100%);
+        color: white;
+        padding: 150px 0 100px;
+        position: relative;
+        overflow: hidden;
+        text-align: center;
+    }
+    
+    .hero-title {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        line-height: 1.2;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        opacity: 0.9;
+    }
+    
+    .hero-wave {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 60px;
+        line-height: 0;
+    }
+    
+    /* Pricing Toggle Styles */
+    .pricing-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 30px;
+    }
+    
+    .pricing-toggle-text {
+        font-size: 1rem;
+        color: rgba(255, 255, 255, 0.8);
+        transition: all 0.3s ease;
+    }
+    
+    .pricing-toggle-text.active {
+        color: white;
+        font-weight: 600;
+    }
+    
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+    }
+    
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+    
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(255, 255, 255, 0.3);
+        transition: .4s;
+    }
+    
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        transition: .4s;
+    }
+    
+    input:checked + .slider {
+        background-color: rgba(255, 255, 255, 0.6);
+    }
+    
+    input:checked + .slider:before {
+        transform: translateX(26px);
+    }
+    
+    .slider.round {
+        border-radius: 34px;
+    }
+    
+    .slider.round:before {
+        border-radius: 50%;
+    }
+    
+    .pricing-save-badge {
+        background-color: #28a745;
+        color: white;
+        font-size: 0.8rem;
+        padding: 4px 8px;
+        border-radius: 20px;
+        margin-left: 10px;
+        font-weight: 600;
+    }
+    
+    /* Sections Common Styles */
+    .section-padding {
+        padding: 100px 0;
+    }
+    
+    .section-header {
+        margin-bottom: 60px;
+    }
+    
+    .section-header h2 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: #333;
+    }
+    
+    .section-header p {
+        font-size: 1.1rem;
+        color: #666;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+    
+    /* Pricing Cards Styles */
+    .price-card {
+        background: white;
+        border-radius: 12px;
+        padding: 30px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+        position: relative;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .price-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    }
+    
+    .price-card.featured {
+        border: 2px solid #4e73df;
+        transform: scale(1.05);
+    }
+    
+    .price-card.featured:hover {
+        transform: scale(1.05) translateY(-5px);
+    }
+    
+    .price-badge {
+        position: absolute;
+        top: -15px;
+        right: 30px;
+        background: #4e73df;
+        color: white;
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-weight: 600;
+        font-size: 0.9rem;
+    }
+    
+    .price-header {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    
+    .price-header h3 {
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin-bottom: 15px;
+    }
+    
+    .price {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #333;
+    }
+    
+    .currency {
+        font-size: 1.5rem;
+        vertical-align: super;
+    }
+    
+    .period {
+        font-size: 1rem;
+        color: #666;
+        font-weight: 400;
+    }
+    
+    .price-features {
+        margin-bottom: 30px;
+        flex-grow: 1;
+    }
+    
+    .price-features ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .price-features li {
+        padding: 10px 0;
+        border-bottom: 1px solid #eee;
+    }
+    
+    .price-features li:last-child {
+        border-bottom: none;
+    }
+    
+    .price-features li i {
+        margin-right: 10px;
+    }
+    
+    .price-features li i.bi-check-circle-fill {
+        color: #4e73df;
+    }
+    
+    .price-features li i.bi-x-circle-fill {
+        color: #dc3545;
+    }
+    
+    .price-features li.disabled {
+        color: #999;
+    }
+    
+    .price-footer {
+        text-align: center;
+    }
+    
+    .btn-block {
+        display: block;
+        width: 100%;
+    }
+    
+    /* Comparison Table Styles */
+    .comparison-table {
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    }
+    
+    .comparison-table th, 
+    .comparison-table td {
+        padding: 15px;
+        border: none;
+        border-bottom: 1px solid #eee;
+        vertical-align: middle;
+    }
+    
+    .comparison-table thead th {
+        background-color: #f8f9fa;
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+        letter-spacing: 1px;
+    }
+    
+    .comparison-table th.highlight,
+    .comparison-table td.highlight {
+        background-color: rgba(78, 115, 223, 0.05);
+        font-weight: 600;
+    }
+    
+    .feature-name {
+        font-weight: 600;
+        color: #333;
+    }
+    
+    /* Enterprise Section Styles */
+    .enterprise-content h2 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        color: #333;
+    }
+    
+    .enterprise-content .lead {
+        font-size: 1.2rem;
+        color: #555;
+        margin-bottom: 1.5rem;
+    }
+    
+    .enterprise-content p {
+        color: #666;
+        margin-bottom: 2rem;
+    }
+    
+    .enterprise-features {
+        margin-bottom: 2rem;
+    }
+    
+    .feature-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+    
+    .feature-item i {
+        color: #4e73df;
+        font-size: 1.5rem;
+        margin-right: 15px;
+    }
+    
+    .feature-item span {
+        font-weight: 500;
+        color: #555;
+    }
+    
+    .enterprise-image {
+        text-align: center;
+    }
+    
+    .enterprise-image img {
+        max-width: 90%;
+    }
+    
+    /* FAQ Styles */
+    .accordion-item {
+        border: none;
+        margin-bottom: 15px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        border-radius: 10px !important;
+        overflow: hidden;
+    }
+    
+    .accordion-button {
+        font-weight: 600;
+        padding: 20px 25px;
+        box-shadow: none !important;
+    }
+    
+    .accordion-button:not(.collapsed) {
+        color: #4e73df;
+        background-color: rgba(78, 115, 223, 0.05);
+    }
+    
+    .accordion-body {
+        padding: 20px 25px;
+        color: #666;
+    }
+    
+    /* CTA Styles */
+    .cta {
+        background: linear-gradient(135deg, #4e73df 0%, #2742af 100%);
+    }
+    
+    .cta-inner {
+        color: white;
+        padding: 60px;
+        border-radius: 15px;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+    }
+    
+    .cta h2 {
+        font-size: 2.2rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+    }
+    
+    .cta p {
+        font-size: 1.1rem;
+        opacity: 0.9;
+        margin-bottom: 0;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 991px) {
+        .pricing-hero {
+            padding: 130px 0 80px;
+        }
+        
+        .hero-title {
+            font-size: 2.5rem;
+        }
+        
+        .price-card.featured {
+            transform: none;
+        }
+        
+        .price-card.featured:hover {
+            transform: translateY(-5px);
+        }
+        
+        .enterprise-content h2 {
+            font-size: 2rem;
+        }
+        
+        .cta-inner {
+            padding: 40px 30px;
+        }
+        
+        .cta h2 {
+            font-size: 1.8rem;
+        }
+    }
+    
+    @media (max-width: 767px) {
+        .hero-title {
+            font-size: 2rem;
+        }
+        
+        .section-header h2 {
+            font-size: 2rem;
+        }
+        
+        .comparison-table th, 
+        .comparison-table td {
+            padding: 10px;
+            font-size: 0.9rem;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Pricing toggle functionality
+        const pricingToggle = document.getElementById('pricingToggle');
+        const monthlyPrices = document.querySelectorAll('.monthly-price');
+        const yearlyPrices = document.querySelectorAll('.yearly-price');
+        const monthlyBtns = document.querySelectorAll('.monthly-btn');
+        const yearlyBtns = document.querySelectorAll('.yearly-btn');
+        const monthlyText = document.querySelectorAll('.pricing-toggle-text')[0];
+        const yearlyText = document.querySelectorAll('.pricing-toggle-text')[1];
+        
+        pricingToggle.addEventListener('change', function() {
+            if (this.checked) {
+                // Yearly pricing
+                monthlyPrices.forEach(item => item.style.display = 'none');
+                yearlyPrices.forEach(item => item.style.display = 'block');
+                monthlyBtns.forEach(item => item.style.display = 'none');
+                yearlyBtns.forEach(item => item.style.display = 'block');
+                monthlyText.classList.remove('active');
+                yearlyText.classList.add('active');
+            } else {
+                // Monthly pricing
+                monthlyPrices.forEach(item => item.style.display = 'block');
+                yearlyPrices.forEach(item => item.style.display = 'none');
+                monthlyBtns.forEach(item => item.style.display = 'block');
+                yearlyBtns.forEach(item => item.style.display = 'none');
+                monthlyText.classList.add('active');
+                yearlyText.classList.remove('active');
+            }
+        });
+        
+        // Featured card hover effect
+        const priceCards = document.querySelectorAll('.price-card:not(.featured)');
+        priceCards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                const featuredCard = document.querySelector('.price-card.featured');
+                if (featuredCard) {
+                    featuredCard.style.transform = 'scale(1)';
+                }
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                const featuredCard = document.querySelector('.price-card.featured');
+                if (featuredCard) {
+                    featuredCard.style.transform = 'scale(1.05)';
+                }
+            });
+        });
+    });
+</script>
+{% endblock %}

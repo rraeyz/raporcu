@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  raporcu-web:
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./templates:/app/templates
+      - ./static:/app/static
+      - ./templates_web:/app/templates_web
+      - raporcu-data:/app/data
+    environment:
+      - FLASK_ENV=production
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped
+
+volumes:
+  raporcu-data:

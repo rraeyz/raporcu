@@ -1,0 +1,458 @@
+{% extends "base.html" %}
+
+{% block title %}Site Haritası - Raporcu{% endblock %}
+
+{% block content %}
+<!-- Sitemap Hero -->
+<section class="sitemap-hero" id="sitemap-hero">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8 mx-auto text-center" data-aos="fade-up">
+                <h1 class="hero-title">Site Haritası</h1>
+                <p class="hero-subtitle">Raporcu web sitesindeki tüm sayfaları keşfedin</p>
+            </div>
+        </div>
+    </div>
+    <div class="hero-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill="#ffffff" fill-opacity="1" d="M0,96L60,112C120,128,240,160,360,160C480,160,600,128,720,122.7C840,117,960,139,1080,138.7C1200,139,1320,117,1380,106.7L1440,96L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
+        </svg>
+    </div>
+</section>
+
+<!-- Sitemap Content -->
+<section class="sitemap-section section-padding" id="sitemap-content">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="content-wrapper" data-aos="fade-up">
+                    <div class="row">
+                        <!-- Ana Sayfalar -->
+                        <div class="col-lg-4 col-md-6 mb-5">
+                            <div class="sitemap-category">
+                                <h2>Ana Sayfalar</h2>
+                                <ul class="sitemap-list">
+                                    <li>
+                                        <a href="{{ url_for('main.index') }}">
+                                            <i class="bi bi-house-door"></i> Ana Sayfa
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ url_for('main.features') }}">
+                                            <i class="bi bi-stars"></i> Özellikler
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ url_for('main.pricing') }}">
+                                            <i class="bi bi-tag"></i> Fiyatlandırma
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ url_for('main.faq') }}">
+                                            <i class="bi bi-question-circle"></i> SSS
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ url_for('main.contact') }}">
+                                            <i class="bi bi-chat-dots"></i> İletişim
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ url_for('main.about') }}">
+                                            <i class="bi bi-info-circle"></i> Hakkımızda
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- Kullanıcı Sayfaları -->
+                        <div class="col-lg-4 col-md-6 mb-5">
+                            <div class="sitemap-category">
+                                <h2>Kullanıcı İşlemleri</h2>
+                                <ul class="sitemap-list">
+                                    <li>
+                                        <a href="{{ url_for('auth.login') }}">
+                                            <i class="bi bi-box-arrow-in-right"></i> Giriş Yap
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ url_for('auth.register') }}">
+                                            <i class="bi bi-person-plus"></i> Kayıt Ol
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ url_for('auth.forgot_password') }}">
+                                            <i class="bi bi-key"></i> Şifremi Unuttum
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ url_for('user.dashboard') }}">
+                                            <i class="bi bi-speedometer2"></i> Kullanıcı Paneli
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ url_for('user.profile') }}">
+                                            <i class="bi bi-person"></i> Profil Ayarları
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ url_for('user.subscriptions') }}">
+                                            <i class="bi bi-credit-card"></i> Abonelikler
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- Rapor Sayfaları -->
+                        <div class="col-lg-4 col-md-6 mb-5">
+                            <div class="sitemap-category">
+                                <h2>Raporlar</h2>
+                                <ul class="sitemap-list">
+                                    <li>
+                                        <a href="{{ url_for('report.create') }}">
+                                            <i class="bi bi-file-earmark-plus"></i> Yeni Rapor Oluştur
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ url_for('report.my_reports') }}">
+                                            <i class="bi bi-file-earmark-text"></i> Raporlarım
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ url_for('report.templates') }}">
+                                            <i class="bi bi-file-earmark-richtext"></i> Rapor Şablonları
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ url_for('report.shared') }}">
+                                            <i class="bi bi-share"></i> Paylaşılan Raporlar
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ url_for('report.trash') }}">
+                                            <i class="bi bi-trash"></i> Çöp Kutusu
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- Yasal Sayfalar -->
+                        <div class="col-lg-4 col-md-6 mb-5">
+                            <div class="sitemap-category">
+                                <h2>Yasal Bilgiler</h2>
+                                <ul class="sitemap-list">
+                                    <li>
+                                        <a href="{{ url_for('main.terms') }}">
+                                            <i class="bi bi-file-earmark-text"></i> Kullanım Şartları
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ url_for('main.privacy') }}">
+                                            <i class="bi bi-shield-lock"></i> Gizlilik Politikası
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ url_for('main.kvkk') }}">
+                                            <i class="bi bi-file-earmark-medical"></i> KVKK Aydınlatma Metni
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ url_for('main.cookie_policy') }}">
+                                            <i class="bi bi-cookie"></i> Çerez Politikası
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ url_for('main.copyright') }}">
+                                            <i class="bi bi-c-circle"></i> Telif Hakkı Bildirimi
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- Kaynaklar -->
+                        <div class="col-lg-4 col-md-6 mb-5">
+                            <div class="sitemap-category">
+                                <h2>Kaynaklar</h2>
+                                <ul class="sitemap-list">
+                                    <li>
+                                        <a href="{{ url_for('main.blog') }}">
+                                            <i class="bi bi-pencil-square"></i> Blog
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ url_for('main.guides') }}">
+                                            <i class="bi bi-book"></i> Kullanım Kılavuzları
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ url_for('main.api_docs') }}">
+                                            <i class="bi bi-braces"></i> API Dokümantasyonu
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ url_for('main.video_tutorials') }}">
+                                            <i class="bi bi-play-circle"></i> Video Eğitimleri
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ url_for('main.downloads') }}">
+                                            <i class="bi bi-download"></i> İndirmeler
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- Diğer Sayfalar -->
+                        <div class="col-lg-4 col-md-6 mb-5">
+                            <div class="sitemap-category">
+                                <h2>Diğer Sayfalar</h2>
+                                <ul class="sitemap-list">
+                                    <li>
+                                        <a href="{{ url_for('main.careers') }}">
+                                            <i class="bi bi-briefcase"></i> Kariyer
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ url_for('main.press') }}">
+                                            <i class="bi bi-newspaper"></i> Basın
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ url_for('main.partners') }}">
+                                            <i class="bi bi-people"></i> İş Ortakları
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ url_for('main.testimonials') }}">
+                                            <i class="bi bi-chat-quote"></i> Müşteri Yorumları
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ url_for('main.sitemap') }}">
+                                            <i class="bi bi-diagram-3"></i> Site Haritası
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- XML Sitemap Section -->
+<section class="xml-sitemap-section section-padding bg-light" id="xml-sitemap">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center" data-aos="fade-up">
+                <h2 class="section-title">XML Site Haritası</h2>
+                <p class="section-desc">Arama motorları için oluşturulmuş XML site haritamıza buradan erişebilirsiniz.</p>
+                <div class="xml-buttons mt-4">
+                    <a href="{{ url_for('static', filename='sitemap.xml') }}" class="btn btn-primary" target="_blank">
+                        <i class="bi bi-file-code"></i> XML Site Haritası
+                    </a>
+                    <a href="https://www.google.com/ping?sitemap={{ url_for('static', filename='sitemap.xml', _external=True) }}" class="btn btn-outline-primary ms-3" target="_blank">
+                        <i class="bi bi-google"></i> Google'a Bildir
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    /* Sitemap Hero Styles */
+    .sitemap-hero {
+        background: linear-gradient(135deg, #4e73df 0%, #2742af 100%);
+        color: white;
+        padding: 150px 0 100px;
+        position: relative;
+        overflow: hidden;
+        text-align: center;
+    }
+    
+    .hero-title {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        line-height: 1.2;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+        opacity: 0.9;
+    }
+    
+    .hero-wave {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 60px;
+        line-height: 0;
+    }
+    
+    /* Sections Common Styles */
+    .section-padding {
+        padding: 80px 0;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+        color: #333;
+    }
+    
+    .section-desc {
+        font-size: 1.1rem;
+        color: #666;
+        margin-bottom: 30px;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    /* Content Styles */
+    .content-wrapper {
+        background: white;
+        border-radius: 15px;
+        padding: 50px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    }
+    
+    .sitemap-category {
+        margin-bottom: 30px;
+    }
+    
+    .sitemap-category h2 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+        color: #333;
+        border-bottom: 2px solid #f0f0f0;
+        padding-bottom: 10px;
+    }
+    
+    .sitemap-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .sitemap-list li {
+        margin-bottom: 15px;
+        padding-left: 5px;
+    }
+    
+    .sitemap-list li a {
+        color: #4e73df;
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+    }
+    
+    .sitemap-list li a:hover {
+        color: #2e59d9;
+        transform: translateX(5px);
+    }
+    
+    .sitemap-list li a i {
+        margin-right: 10px;
+        font-size: 1.1rem;
+    }
+    
+    /* XML Sitemap Section Styles */
+    .xml-sitemap-section {
+        background-color: #f8f9fc;
+    }
+    
+    .xml-buttons {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+    
+    .xml-buttons .btn {
+        padding: 12px 25px;
+        font-weight: 600;
+    }
+    
+    .xml-buttons .btn i {
+        margin-right: 8px;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 991px) {
+        .sitemap-hero {
+            padding: 130px 0 80px;
+        }
+        
+        .hero-title {
+            font-size: 2.5rem;
+        }
+        
+        .content-wrapper {
+            padding: 30px;
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+        }
+    }
+    
+    @media (max-width: 767px) {
+        .hero-title {
+            font-size: 2rem;
+        }
+        
+        .content-wrapper {
+            padding: 25px;
+        }
+        
+        .section-title {
+            font-size: 1.6rem;
+        }
+        
+        .sitemap-category h2 {
+            font-size: 1.3rem;
+        }
+        
+        .xml-buttons {
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .xml-buttons .btn {
+            width: 100%;
+            margin-left: 0 !important;
+            margin-bottom: 15px;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // AOS animasyonları için
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+    });
+</script>
+{% endblock %}
