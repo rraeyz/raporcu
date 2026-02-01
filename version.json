@@ -1,14 +1,12 @@
 {
-    "version": "1.0.0",
+    "version": "1.0.1",
     "release_date": "2026-02-01",
     "download_url": "https://github.com/rraeyz/raporcu/releases/latest",
-    "release_notes": "İlk kararlı sürüm. AI destekli deney raporu oluşturma uygulaması.",
+    "release_notes": "Güncelleme kontrol sistemi iyileştirmeleri ve hata düzeltmeleri.",
     "min_required_version": "1.0.0",
     "changes": [
-        "🎤 Ses kaydı ve transkripsiyon",
-        "🤖 GPT-4, Claude, Gemini desteği",
-        "📄 PDF/Word export",
-        "🌍 Türkçe/İngilizce dil desteği",
-        "🎨 Modern CustomTkinter arayüzü"
+        "✅ Otomatik güncelleme kontrolü eklendi",
+        "🐛 Çeşitli hata düzeltmeleri",
+        "⚡ Performans iyileştirmeleri"
     ]
 }
