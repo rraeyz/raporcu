@@ -1,6 +1,19 @@
 # Raporcu - Yapay Zeka Destekli Deney Raporu Yazım Uygulaması
 
-Raporcu, deney raporları oluşturmak için geliştirilmiş Python tabanlı, kullanıcı dostu bir masaüstü uygulamasıdır. Sesli olarak kaydedilen deney prosedürlerini yapay zeka desteğiyle profesyonel raporlara dönüştürme imkanı sunar.
+<div align="center">
+
+[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org)
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
+[![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey.svg)](https://github.com/rraeyz/raporcu)
+
+Deney raporları oluşturmak için geliştirilmiş **masaüstü uygulaması**. Sesli olarak kaydedilen deney prosedürlerini yapay zeka desteğiyle profesyonel raporlara dönüştürür.
+
+[Özellikler](#-özellikler) · [Kurulum](#-kurulum) · [Kullanım](#-kullanım) · [Web Versiyonu](https://github.com/rraeyz/raporcuweb)
+
+</div>
+
+---
 
 ## 🎯 Özellikler
 
@@ -97,12 +110,14 @@ kurulum(ffmpeg kurulumlu).bat
 
 ## 🛠️ Teknolojiler
 
-- **GUI:** CustomTkinter
+- **GUI:** CustomTkinter (modern, cross-platform)
 - **Ses İşleme:** PyAudio, Pydub, SpeechRecognition
 - **AI Entegrasyonu:** OpenAI, Google Generative AI, Anthropic
-- **Whisper:** Offline ses tanıma
+- **Whisper:** Offline ses tanıma (opsiyonel)
 - **Dosya İşleme:** python-docx, PyMuPDF, ReportLab
 - **Görselleştirme:** Matplotlib, SymPy
+
+> 💡 **Web versiyonu mu arıyorsunuz?** → [RaporcuWeb](https://github.com/rraeyz/raporcuweb) (Flask tabanlı web uygulaması)
 
 ## 📋 Desteklenen AI Modelleri
 
