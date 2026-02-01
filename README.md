@@ -22,11 +22,15 @@ Deney raporları oluşturmak için geliştirilmiş **masaüstü uygulaması**. S
 
 **Windows:**
 - [Raporcu-v1.0.0-Windows.exe](https://github.com/rraeyz/raporcu/releases/latest) (64-bit)
+- ⚠️ **Önemli:** Ses kaydı özelliği için FFmpeg dahildir
+- 💾 Boyut: ~200-250 MB (FFmpeg dahil)
 
 **macOS / Linux:**
 - Kaynak koddan çalıştırın (aşağıdaki kurulum talimatlarını izleyin)
 
-> ⚠️ **Not:** İlk çalıştırmada Windows Defender uyarısı alabilirsiniz. "Daha fazla bilgi" → "Yine de çalıştır" seçeneğini kullanın.
+> ⚠️ **Güvenlik Notu:** İlk çalıştırmada Windows Defender uyarısı alabilirsiniz. "Daha fazla bilgi" → "Yine de çalıştır" seçeneğini kullanın. (PyInstaller ile oluşturulan tüm .exe dosyalarında normal bir durumdur)
+
+> 📝 **İlk Kullanım:** Uygulama çalıştırıldığında otomatik olarak `settings.json` dosyası oluşturulacak. API anahtarlarınızı bu dosyaya ekleyin.
 
 ---
 
@@ -154,6 +158,29 @@ Katkılarınızı bekliyoruz! Pull request göndermekten çekinmeyin.
 
 Uygulamayı tek bir `.exe` dosyası olarak derlemek için:
 
+**Gereksinimler:**
+- ✅ Python 3.8+
+- ✅ PyInstaller
+- ✅ **FFmpeg binary dosyaları** (kritik!)
+
+**FFmpeg Hazırlığı:**
+
+Ses işleme özelliklerinin çalışması için FFmpeg gereklidir. Build öncesi:
+
+**Seçenek 1: Kurulum scriptini kullan**
+```bash
+kurulum(ffmpeg kurulumlu).bat
+```
+Bu script FFmpeg'i otomatik indirir ve `venv/Scripts/` klasörüne yerleştirir.
+
+**Seçenek 2: Manuel**
+1. FFmpeg indirin: https://github.com/BtbN/FFmpeg-Builds/releases
+2. `ffmpeg.exe` ve `ffprobe.exe` dosyalarını şuraya koyun:
+   - `ffmpeg-N-119584-g06cee0c681-win64-gpl/bin/` (proje içinde mevcut)
+   - veya `venv/Scripts/`
+
+**Build Adımları:**
+
 **1. PyInstaller Yükleyin:**
 ```bash
 pip install pyinstaller
@@ -161,12 +188,18 @@ pip install pyinstaller
 
 **2. Build Scripti Çalıştırın:**
 ```bash
-# Windows
+# Windows (önerilen - otomatik kontroller)
 build.bat
 
 # veya manuel:
 python build_exe.py
 ```
+
+Build script otomatik olarak:
+- ✅ FFmpeg varlığını kontrol eder
+- ✅ FFmpeg binary'lerini exe'ye dahil eder
+- ✅ Tüm Python bağımlılıklarını paketler
+- ✅ Tek bir .exe dosyası oluşturur
 
 **3. Test Edin:**
 ```bash
