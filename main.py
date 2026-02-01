@@ -16,6 +16,8 @@ from audio_processor import AudioProcessor
 from file_processor import FileProcessor
 from ai_service import AIService
 from utils import center_window
+from version import __version__
+from update_checker import UpdateChecker
 
 class RaporApp(ctk.CTk):
     def __init__(self):
@@ -25,7 +27,7 @@ class RaporApp(ctk.CTk):
         self.config = Config()
         
         # Temel pencere ayarları
-        self.title("Deney Raporu Yazım Uygulaması")
+        self.title(f"Raporcu v{__version__} - Deney Raporu Yazım Uygulaması")
         
         # Pencere konumunu ve boyutunu ayarla (kayıtlı durumdan)
         self.saved_geometry, self.saved_state = self.config.get_window_state()
@@ -54,6 +56,18 @@ class RaporApp(ctk.CTk):
 
         # Pencere kapatma olayını bağla
         self.protocol("WM_DELETE_WINDOW", self.on_closing)
+        
+        # Güncelleme kontrolü (arka planda, UI yüklendikten sonra)
+        self.after(3000, self.check_for_updates)  # 3 saniye sonra kontrol et
+
+    def check_for_updates(self):
+        """Güncelleme kontrolü yap (arka planda)"""
+        try:
+            update_checker = UpdateChecker(self)
+            update_checker.check_for_updates(show_if_current=False)
+        except Exception as e:
+            # Hata olursa sessizce geç (güncelleme opsiyonel)
+            print(f"Güncelleme kontrolü hatası: {e}")
 
     def initialize_ui(self):
         """UI elementlerini yükle"""
@@ -150,6 +164,7 @@ class RaporApp(ctk.CTk):
         self.top_frame.grid_columnconfigure(1, weight=0)  # Başlık etiketi
         self.top_frame.grid_columnconfigure(2, weight=1)  # Başlık giriş alanı
         self.top_frame.grid_columnconfigure(3, weight=0)  # Rapor oluştur butonu
+        self.top_frame.grid_columnconfigure(4, weight=0)  # Hakkında butonu
         
         # Ayarlar butonu
         self.settings_btn = ctk.CTkButton(
@@ -159,6 +174,15 @@ class RaporApp(ctk.CTk):
             width=100
         )
         self.settings_btn.grid(row=0, column=0, padx=5, pady=5, sticky="w")
+        
+        # Hakkında butonu
+        self.about_btn = ctk.CTkButton(
+            self.top_frame,
+            text="ℹ️ Hakkında",
+            command=self.show_about,
+            width=100
+        )
+        self.about_btn.grid(row=0, column=4, padx=5, pady=5, sticky="e")
         
         # Deney başlığı
         self.title_label = ctk.CTkLabel(self.top_frame, text="Deney Başlığı:")
@@ -405,6 +429,76 @@ class RaporApp(ctk.CTk):
         """Ayarlar penceresini açar"""
         settings_window = SettingsWindow(self)
         settings_window.grab_set()  # Modal pencere yapma
+    
+    def show_about(self):
+        """Hakkında penceresini gösterir"""
+        about_text = (
+            f"🎓 Raporcu v{__version__}\n"
+            f"AI Destekli Deney Raporu Yazım Uygulaması\n\n"
+            f"✨ Özellikler:\n"
+            f"  • Ses kaydı ve transkripsiyon\n"
+            f"  • GPT-4, Claude, Gemini desteği\n"
+            f"  • PDF/Word export\n"
+            f"  • Türkçe/İngilizce dil desteği\n\n"
+            f"🔗 GitHub: github.com/rraeyz/raporcu\n"
+            f"📧 İletişim: GitHub Issues\n\n"
+            f"📄 Lisans: MIT License\n"
+            f"© 2026 rraeyz"
+        )
+        
+        # Hakkında penceresi
+        about_window = ctk.CTkToplevel(self)
+        about_window.title("Hakkında")
+        about_window.geometry("400x450")
+        about_window.resizable(False, False)
+        
+        # Merkeze konumlandır
+        about_window.update_idletasks()
+        x = (about_window.winfo_screenwidth() // 2) - (400 // 2)
+        y = (about_window.winfo_screenheight() // 2) - (450 // 2)
+        about_window.geometry(f"400x450+{x}+{y}")
+        
+        # İçerik
+        text_label = ctk.CTkLabel(
+            about_window,
+            text=about_text,
+            justify="left",
+            font=("Arial", 12)
+        )
+        text_label.pack(padx=20, pady=20)
+        
+        # Butonlar frame'i
+        btn_frame = ctk.CTkFrame(about_window)
+        btn_frame.pack(side=tk.BOTTOM, fill=tk.X, padx=20, pady=20)
+        
+        # Güncellemeleri kontrol et butonu
+        update_btn = ctk.CTkButton(
+            btn_frame,
+            text="🔄 Güncellemeleri Kontrol Et",
+            command=lambda: self.manual_update_check(about_window),
+            height=35
+        )
+        update_btn.pack(side=tk.TOP, fill=tk.X, pady=(0, 10))
+        
+        # Kapat butonu
+        close_btn = ctk.CTkButton(
+            btn_frame,
+            text="Kapat",
+            command=about_window.destroy,
+            height=35
+        )
+        close_btn.pack(side=tk.TOP, fill=tk.X)
+    
+    def manual_update_check(self, parent_window=None):
+        """Manuel güncelleme kontrolü"""
+        try:
+            update_checker = UpdateChecker(self)
+            update_checker.check_for_updates(show_if_current=True)
+        except Exception as e:
+            messagebox.showerror(
+                "Hata",
+                f"Güncelleme kontrolü başarısız:\n{str(e)}"
+            )
     
     def toggle_recording(self):
         """Ses kaydını başlatır veya durdurur"""
