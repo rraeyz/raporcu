@@ -6,12 +6,27 @@
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 [![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey.svg)](https://github.com/rraeyz/raporcu)
+[![Downloads](https://img.shields.io/github/downloads/rraeyz/raporcu/total.svg)](https://github.com/rraeyz/raporcu/releases)
 
 Deney raporları oluşturmak için geliştirilmiş **masaüstü uygulaması**. Sesli olarak kaydedilen deney prosedürlerini yapay zeka desteğiyle profesyonel raporlara dönüştürür.
 
-[Özellikler](#-özellikler) · [Kurulum](#-kurulum) · [Kullanım](#-kullanım) · [Web Versiyonu](https://github.com/rraeyz/raporcuweb)
+[📥 İndir](#-hazır-uygulama-indirin) · [Özellikler](#-özellikler) · [Geliştirici Kurulumu](#-geliştirici-kurulumu) · [Web Versiyonu](https://github.com/rraeyz/raporcuweb)
 
 </div>
+
+---
+
+## 📥 Hazır Uygulama İndirin
+
+**Geliştirici değil misiniz?** Python kurmadan direkt çalışabilir sürümü indirin:
+
+**Windows:**
+- [Raporcu-v1.0.0-Windows.exe](https://github.com/rraeyz/raporcu/releases/latest) (64-bit)
+
+**macOS / Linux:**
+- Kaynak koddan çalıştırın (aşağıdaki kurulum talimatlarını izleyin)
+
+> ⚠️ **Not:** İlk çalıştırmada Windows Defender uyarısı alabilirsiniz. "Daha fazla bilgi" → "Yine de çalıştır" seçeneğini kullanın.
 
 ---
 
@@ -132,6 +147,41 @@ Katkılarınızı bekliyoruz! Pull request göndermekten çekinmeyin.
 1. Fork edin
 2. Feature branch oluşturun (`git checkout -b feature/AmazingFeature`)
 3. Commit edin (`git commit -m 'Add some AmazingFeature'`)
+4. Push edin (`git push origin feature/AmazingFeature`)
+5. Pull Request açın
+
+## 🔧 Geliştirici: EXE Oluşturma
+
+Uygulamayı tek bir `.exe` dosyası olarak derlemek için:
+
+**1. PyInstaller Yükleyin:**
+```bash
+pip install pyinstaller
+```
+
+**2. Build Scripti Çalıştırın:**
+```bash
+# Windows
+build.bat
+
+# veya manuel:
+python build_exe.py
+```
+
+**3. Test Edin:**
+```bash
+dist\Raporcu.exe
+```
+
+**4. GitHub Release Oluşturun:**
+- GitHub'da "Releases" → "Create a new release"
+- Tag: `v1.0.0`
+- Title: `Raporcu v1.0.0`
+- `dist/Raporcu.exe` dosyasını yükleyin
+- Release notes yazın
+- "Publish release"
+
+> 📦 Exe dosyası `dist/` klasöründe oluşturulur. Boyut: ~150-200 MB
 4. Push edin (`git push origin feature/AmazingFeature`)
 5. Pull Request açın
 
